@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class GameOverHUDLayer : MonoBehaviour
 {
 	// Text variables
-	public Text bounceResultText;
+	public Text titleText;
+	public Text scoreGoalText;
+	public Text playerBounceResultText;
 	public Button restartButton;
 	public Button quitButton;
 
@@ -43,7 +45,19 @@ public class GameOverHUDLayer : MonoBehaviour
 			Application.Quit();
 		});
 
+		// Set the content of the title based on whether the player
+		// reached the score target
+		if (player.bounceCount == ScoreTargetController.scoreTarget)
+		{
+			titleText.text = "You Win!";
+		}
 
-		bounceResultText.text = "You bounced " + player.bounceCount + " times";
+		else
+		{
+			titleText.text = "You Lose";
+		}
+
+		scoreGoalText.text = "Bounce " + ScoreTargetController.scoreTarget + " time(s)";
+		playerBounceResultText.text = "Bounced " + player.bounceCount + " time(s)";
 	}
 }
