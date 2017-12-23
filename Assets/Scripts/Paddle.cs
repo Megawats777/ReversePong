@@ -116,7 +116,7 @@ public class Paddle : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && currentColourState == player.currentColourState)
         {
             player.direction *= -1;
-            player.speed = Mathf.Clamp(player.speed + speedIncreaseFactor, 0.0f, 25.0f);
+            player.speed = Mathf.Clamp(player.speed + speedIncreaseFactor, 0.0f, 100.0f);
 			player.bounceCount += 1;
 
             if (opositePaddle)
