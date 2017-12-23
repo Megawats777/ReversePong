@@ -126,10 +126,7 @@ public class Paddle : MonoBehaviour
         // Otherwise
 		else
 		{
-			player.disable();
-
-            hudLayerController.hideGameplayHUDLayer();
-            hudLayerController.showGameOverHUDLayer();
+			StartCoroutine(GameStateController.endGame());
 		}
     }
 }

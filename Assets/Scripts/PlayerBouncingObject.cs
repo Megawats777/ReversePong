@@ -115,8 +115,23 @@ public class PlayerBouncingObject : MonoBehaviour
         float speedIncreaseFactor = 0.5f;
         direction *= -1;
         speed = Mathf.Clamp(speed + speedIncreaseFactor, 0.0f, 100.0f);
-        bounceCount += 1;
+        increaseBounceCount();
     }
+
+    // Increase the bounce count
+    public void increaseBounceCount()
+    {
+        bounceCount += 1;
+
+        // If the bounce count is equal to the target
+        if (bounceCount == ScoreTargetController.scoreTarget)
+        {
+            // End the game
+            StartCoroutine(GameStateController.endGame());
+        }
+    }
+
+
 
     // Enable the player
     public void enable()

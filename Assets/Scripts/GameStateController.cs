@@ -5,21 +5,21 @@ using UnityEngine;
 public class GameStateController : MonoBehaviour
 {
 
-	// External refrences
-	private PlayerBouncingObject player;
-	private HUDLayerController hudLayerController;
+    // External refrences
+    private static PlayerBouncingObject player;
+    private static HUDLayerController hudLayerController;
 
 
-	void Awake()
-	{
-		player = FindObjectOfType<PlayerBouncingObject>();
-		hudLayerController = FindObjectOfType<HUDLayerController>();
-	}
+    void Awake()
+    {
+        player = FindObjectOfType<PlayerBouncingObject>();
+        hudLayerController = FindObjectOfType<HUDLayerController>();
+    }
 
     // Use this for initialization
     void Start()
     {
-		StartCoroutine(startGame());
+        StartCoroutine(startGame());
     }
 
     // Update is called once per frame
@@ -28,16 +28,27 @@ public class GameStateController : MonoBehaviour
 
     }
 
-	// Start the game
-	IEnumerator startGame()
-	{
-		hudLayerController.showStartingHUDLayer();
-		yield return new WaitForSeconds(3.0f);
-		
-		hudLayerController.hideStartingHUDLayer();
-		hudLayerController.showGameplayHUDLayer();
+    // Start the game
+    public static IEnumerator startGame()
+    {
+        hudLayerController.showStartingHUDLayer();
+        yield return new WaitForSeconds(3.0f);
 
-		ScoreTargetController.generateScoreTarget();
-		player.enable();
-	}
+        hudLayerController.hideStartingHUDLayer();
+        hudLayerController.showGameplayHUDLayer();
+
+        ScoreTargetController.generateScoreTarget();
+        player.enable();
+    }
+
+    // End the game
+    public static IEnumerator endGame()
+    {
+        player.disable();
+        hudLayerController.hideGameplayHUDLayer();
+
+        yield return new WaitForSeconds(2.0f);
+    	
+		hudLayerController.showGameOverHUDLayer();
+    }
 }
