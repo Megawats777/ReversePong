@@ -7,6 +7,7 @@ public class GameplayHUDLayer : MonoBehaviour
 {
 	// Text variables
 	public Text bounceCountText;
+	public Text targetText;
 
 	// External references
 	PlayerBouncingObject player;
@@ -27,5 +28,6 @@ public class GameplayHUDLayer : MonoBehaviour
     void Update()
     {
 		bounceCountText.text = "Bounces: " + player.bounceCount;
-    }
+		targetText.text = "Target: " + ScoreTargetController.scoreTarget;
+	}
 }

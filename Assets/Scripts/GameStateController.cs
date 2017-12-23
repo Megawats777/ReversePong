@@ -37,6 +37,7 @@ public class GameStateController : MonoBehaviour
 		hudLayerController.hideStartingHUDLayer();
 		hudLayerController.showGameplayHUDLayer();
 
+		ScoreTargetController.generateScoreTarget();
 		player.enable();
 	}
 }
