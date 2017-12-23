@@ -37,7 +37,6 @@ public class GameStateController : MonoBehaviour
 		hudLayerController.hideStartingHUDLayer();
 		hudLayerController.showGameplayHUDLayer();
 
-		player.isInputEnabled = true;
-		player.canMove = true;
+		player.enable();
 	}
 }

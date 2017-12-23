@@ -111,13 +111,11 @@ public class Paddle : MonoBehaviour
     // On Collision
     void OnCollisionEnter(Collision collision)
     {
-        float speedIncreaseFactor = 0.5f;
-
+        // If the colliding object is the player
+        // and the player's colour state is the same as this one
         if (collision.gameObject.CompareTag("Player") && currentColourState == player.currentColourState)
         {
-            player.direction *= -1;
-            player.speed = Mathf.Clamp(player.speed + speedIncreaseFactor, 0.0f, 100.0f);
-			player.bounceCount += 1;
+            player.reverseMovement();       
 
             if (opositePaddle)
             {
@@ -125,12 +123,10 @@ public class Paddle : MonoBehaviour
             }
         }
 
+        // Otherwise
 		else
 		{
-			player.canMove = false;
-			player.isInputEnabled = false;
-			player.meshRenderer.enabled = false;
-			player.collider.enabled = false;
+			player.disable();
 
             hudLayerController.hideGameplayHUDLayer();
             hudLayerController.showGameOverHUDLayer();

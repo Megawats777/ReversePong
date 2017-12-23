@@ -108,4 +108,29 @@ public class BouncingObject : MonoBehaviour
 
 
     }
+
+    // Reverse player movement
+    public void reverseMovement()
+    {
+        float speedIncreaseFactor = 0.5f;
+        direction *= -1;
+        speed = Mathf.Clamp(speed + speedIncreaseFactor, 0.0f, 100.0f);
+        bounceCount += 1;
+    }
+
+    // Enable the player
+    public void enable()
+    {
+        isInputEnabled = true;
+        canMove = true;
+    }
+
+    // Disable the player
+    public void disable()
+    {
+        canMove = false;
+        isInputEnabled = false;
+        meshRenderer.enabled = false;
+        collider.enabled = false;
+    }
 }
