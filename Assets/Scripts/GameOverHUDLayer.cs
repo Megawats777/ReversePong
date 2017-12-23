@@ -12,12 +12,12 @@ public class GameOverHUDLayer : MonoBehaviour
 	public Button quitButton;
 
 	// External references
-	private BouncingObject player;
+	private PlayerBouncingObject player;
 
 
 	void Awake()
 	{
-		player = FindObjectOfType<BouncingObject>();
+		player = FindObjectOfType<PlayerBouncingObject>();
 	}
 
     // Use this for initialization

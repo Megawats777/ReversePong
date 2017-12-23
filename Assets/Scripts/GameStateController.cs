@@ -6,13 +6,13 @@ public class GameStateController : MonoBehaviour
 {
 
 	// External refrences
-	private BouncingObject player;
+	private PlayerBouncingObject player;
 	private HUDLayerController hudLayerController;
 
 
 	void Awake()
 	{
-		player = FindObjectOfType<BouncingObject>();
+		player = FindObjectOfType<PlayerBouncingObject>();
 		hudLayerController = FindObjectOfType<HUDLayerController>();
 	}
 

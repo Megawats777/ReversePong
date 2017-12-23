@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BouncingObject : MonoBehaviour
+public class PlayerBouncingObject : MonoBehaviour
 {
     [HideInInspector]
     public bool isInputEnabled = false;

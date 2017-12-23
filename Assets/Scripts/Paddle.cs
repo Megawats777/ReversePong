@@ -21,14 +21,14 @@ public class Paddle : MonoBehaviour
 
 
     // External references
-    BouncingObject player;
+    PlayerBouncingObject player;
     public Paddle opositePaddle;
     private HUDLayerController hudLayerController;
 
     void Awake()
     {
         renderer = GetComponent<Renderer>();
-        player = FindObjectOfType<BouncingObject>();
+        player = FindObjectOfType<PlayerBouncingObject>();
         hudLayerController = FindObjectOfType<HUDLayerController>();
     }
 

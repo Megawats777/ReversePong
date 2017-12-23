@@ -9,11 +9,11 @@ public class GameplayHUDLayer : MonoBehaviour
 	public Text bounceCountText;
 
 	// External references
-	BouncingObject player;
+	PlayerBouncingObject player;
 
 	void Awake()
 	{
-		player = FindObjectOfType<BouncingObject>();
+		player = FindObjectOfType<PlayerBouncingObject>();
 	}
 
 
