@@ -113,7 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInputEnabled: 0
   direction: 1
-  speed: 25
+  speed: 32
+  speedIncreaseFactor: 2.5
   canMove: 0
   currentColourState: 0
   colourStateMaterials:
