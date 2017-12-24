@@ -12,6 +12,7 @@ public class PlayerBouncingObject : MonoBehaviour
     public float direction = 1;
     public float speed = 5.0f;
     public float speedIncreaseFactor = 0.5f;
+    public float speedCap = 100.0f;
 
     [HideInInspector]
     public bool canMove = false;
@@ -115,7 +116,7 @@ public class PlayerBouncingObject : MonoBehaviour
     public void reverseMovement()
     {
         direction *= -1;
-        speed = Mathf.Clamp(speed + speedIncreaseFactor, 0.0f, 100.0f);
+        speed = Mathf.Clamp(speed + speedIncreaseFactor, 0.0f, speedCap);
         increaseBounceCount();
     }
 
