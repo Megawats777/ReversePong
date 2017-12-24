@@ -5,8 +5,8 @@ using UnityEngine;
 public class ScoreTargetController : MonoBehaviour
 {
 
-	private static int minScoreTarget = 25;
-	private static int maxScoreTarget = 35;
+	private static int minScoreTarget = 35;
+	private static int maxScoreTarget = 42;
 	public static int scoreTarget;
 
     // Use this for initialization
