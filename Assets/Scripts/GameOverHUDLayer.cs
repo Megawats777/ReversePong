@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameOverHUDLayer : MonoBehaviour
 {
-	// Text variables
+	// HUD element variables
+	[HeaderAttribute("HUD Elements")]
 	public Text titleText;
 	public Text scoreGoalText;
 	public Text playerBounceResultText;

@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class StartingHUDLayer : MonoBehaviour
 {
-	// Text variables
+	// HUD Elements
+	[HeaderAttribute("HUD Elements")]
 	public Text statusText;
 
     // Use this for initialization

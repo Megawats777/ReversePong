@@ -5,9 +5,12 @@ using UnityEngine;
 public class HUDLayerController : MonoBehaviour
 {
 	// HUD layer variables
-	public GameplayHUDLayer gameplayHUDLayer;
-	public GameOverHUDLayer gameOverHUDLayer;
-	public StartingHUDLayer startingHUDLayer;
+	[HeaderAttribute("HUD Layer References"),SerializeField]
+	private GameplayHUDLayer gameplayHUDLayer;
+	[SerializeField]
+	private GameOverHUDLayer gameOverHUDLayer;
+	[SerializeField]
+	private StartingHUDLayer startingHUDLayer;
 
     // Use this for initialization
     void Start()
@@ -23,7 +26,7 @@ public class HUDLayerController : MonoBehaviour
     }
 
 
-	// Starting HUD code
+	// Starting HUD layer code
 	public void showStartingHUDLayer()
 	{
 		startingHUDLayer.gameObject.SetActive(true);
@@ -36,7 +39,7 @@ public class HUDLayerController : MonoBehaviour
 
 
 
-	// Gameplay HUD code
+	// Gameplay HUD layer code
 	public void showGameplayHUDLayer()
 	{
 		gameplayHUDLayer.gameObject.SetActive(true);
@@ -48,7 +51,7 @@ public class HUDLayerController : MonoBehaviour
 	}
 
 
-	// Game Over HUD code
+	// Game Over HUD layer code
 	public void showGameOverHUDLayer()
 	{
 		gameOverHUDLayer.gameObject.SetActive(true);

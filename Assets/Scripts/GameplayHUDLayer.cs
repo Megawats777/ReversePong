@@ -5,17 +5,18 @@ using UnityEngine.UI;
 
 public class GameplayHUDLayer : MonoBehaviour
 {
-	// Text variables
-	public Text bounceCountText;
-	public Text targetText;
+    // HUD Elements
+    [HeaderAttribute("HUD Elements")]
+    public Text bounceCountText;
+    public Text targetText;
 
-	// External references
-	PlayerBouncingObject player;
+    // External references
+    PlayerBouncingObject player;
 
-	void Awake()
-	{
-		player = FindObjectOfType<PlayerBouncingObject>();
-	}
+    void Awake()
+    {
+        player = FindObjectOfType<PlayerBouncingObject>();
+    }
 
 
     // Use this for initialization
@@ -27,7 +28,13 @@ public class GameplayHUDLayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		bounceCountText.text = "Bounces: " + player.bounceCount;
-		targetText.text = "Target: " + ScoreTargetController.scoreTarget;
-	}
+        updateHUDElements();
+    }
+
+    // Update HUD elements
+    private void updateHUDElements()
+    {
+        bounceCountText.text = "Bounces: " + player.bounceCount;
+        targetText.text = "Target: " + ScoreTargetController.scoreTarget;
+    }
 }
