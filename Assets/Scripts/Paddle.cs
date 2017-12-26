@@ -9,7 +9,7 @@ public class Paddle : MonoBehaviour
     // Index 0: Red
     // Index 1: Green
     // Index 2: Blue
-    [SerializeField]
+    [HeaderAttribute("Colour State Variables"),SerializeField]
     private Material[] stateMaterials;
 
     // Current colour state
@@ -22,6 +22,7 @@ public class Paddle : MonoBehaviour
 
     // External references
     PlayerBouncingObject player;
+    [HeaderAttribute("External References")]
     public Paddle opositePaddle;
     private HUDLayerController hudLayerController;
 
