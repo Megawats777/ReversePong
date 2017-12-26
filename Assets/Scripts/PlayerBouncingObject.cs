@@ -9,6 +9,7 @@ public class PlayerBouncingObject : MonoBehaviour
 
 
     // Movement variables
+    [HeaderAttribute("Movement Variables")]
     public float direction = 1;
     public float speed = 5.0f;
     public float speedIncreaseFactor = 0.5f;
@@ -18,17 +19,23 @@ public class PlayerBouncingObject : MonoBehaviour
     public bool canMove = false;
 
     // Colour state variables
+    [HeaderAttribute("Colour State Variables"), SpaceAttribute(2.0f)]
     public ColourStates currentColourState = ColourStates.Red;
-    public Material[] colourStateMaterials; // Index 0: Red, Index 1: Green, Index 2, Blue
+    [SerializeField]
+    private Material[] colourStateMaterials; // Index 0: Red, Index 1: Green, Index 2, Blue
 
 
     // Bounce Count variables
+    [HideInInspector]
     public int bounceCount = 0;
 
 
     // Components
+    [HideInInspector]
     public Rigidbody rb;
+    [HideInInspector]
     public Renderer meshRenderer;
+    [HideInInspector]
     public Collider collider;
 
     void Awake()
@@ -50,7 +57,7 @@ public class PlayerBouncingObject : MonoBehaviour
     {
         if (isInputEnabled == true)
         {
-            // If the 1 key is pressed
+            // If the A key is pressed
             if (Input.GetKeyDown(KeyCode.A))
             {
                 // Set the colour state to red
@@ -58,7 +65,7 @@ public class PlayerBouncingObject : MonoBehaviour
             }
 
 
-            // If the 2 key is pressed
+            // If the S key is pressed
             else if (Input.GetKeyDown(KeyCode.S))
             {
                 // Set the colour state to green
@@ -66,7 +73,7 @@ public class PlayerBouncingObject : MonoBehaviour
             }
 
 
-            // If the 3 key is pressed
+            // If the D key is pressed
             else if (Input.GetKeyDown(KeyCode.D))
             {
                 // Set the colour state to blue
