@@ -86,7 +86,7 @@ public class PlayerBouncingObject : MonoBehaviour
     {
         if (canMove == true)
         {
-            rb.AddForce(transform.forward * direction * speed * Time.fixedDeltaTime);
+            rb.AddForce(Vector3.forward * direction * speed * Time.fixedDeltaTime, ForceMode.Force);
         }
     }
 
