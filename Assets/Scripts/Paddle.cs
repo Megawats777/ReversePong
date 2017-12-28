@@ -51,7 +51,7 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Random.InitState((int)Time.realtimeSinceStartup);
+        
     }
 
     // Set random colour state
