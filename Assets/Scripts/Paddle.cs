@@ -5,6 +5,11 @@ using UnityEngine;
 public class Paddle : MonoBehaviour
 {
 
+    [SerializeField]
+    private Material disabledMaterial;
+    [SerializeField]
+    private bool isFirstPaddle;
+
     // State materials
     // Index 0: Red
     // Index 1: Green
@@ -14,7 +19,6 @@ public class Paddle : MonoBehaviour
 
     // Current colour state
     public ColourStates currentColourState = ColourStates.Red;
-    private ColourStates previousColourState = ColourStates.Red;
 
     // Components
     Renderer renderer;
@@ -37,6 +41,11 @@ public class Paddle : MonoBehaviour
     void Start()
     {
         setRandomColourState();
+
+        if (isFirstPaddle == false)
+        {
+            renderer.material = disabledMaterial;
+        }
     }
 
     // Update is called once per frame
@@ -153,6 +162,7 @@ public class Paddle : MonoBehaviour
 
             if (opositePaddle)
             {
+                renderer.material = disabledMaterial;
                 opositePaddle.selectNewColourState(currentColourState);
             }
         }

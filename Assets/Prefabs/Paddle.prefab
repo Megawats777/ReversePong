@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa2e43498bea2e45bdc6fe77cc2ac48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disabledMaterial: {fileID: 2100000, guid: 491f356fafdac2c41acffd4757ce01de, type: 2}
   stateMaterials:
   - {fileID: 2100000, guid: 386cdc3de7769474b985db6ee97b3644, type: 2}
   - {fileID: 2100000, guid: da9733a43f277f04687b5cef4e1563a5, type: 2}

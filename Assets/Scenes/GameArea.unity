@@ -836,6 +836,11 @@ Prefab:
       propertyPath: opositePaddle
       value: 
       objectReference: {fileID: 1545432833}
+    - target: {fileID: 114633703228411404, guid: 28bbbe57e14e55d4a945dd942b704abc,
+        type: 2}
+      propertyPath: isFirstPaddle
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 28bbbe57e14e55d4a945dd942b704abc, type: 2}
   m_IsPrefabParent: 0
