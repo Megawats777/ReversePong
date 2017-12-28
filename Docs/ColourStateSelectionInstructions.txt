@@ -17,25 +17,16 @@
 
                 --For the opposite paddle
 
-                // Based on what the other paddle told you
-                // about its colour state
-
-                    // If the colour state told was red
+                // Select a random colour state
 
 
-                        // Select either blue or green as your new colour state
+                    // If the colour state chosen is the same as the colour
+                    // of the player
 
+                        // Call this function again
 
-                    // If the colour state told was green
+                    // Otherwise
 
+                        // Set the chosen colour state as the current one
 
-                        // Select either green or blue as your new colour state
-
-
-                    // If the colour state told was blue
-
-
-                        // Select either red or green as your new colour state
-
-
-                    // Apply colour state settings
+                        // Apply colour state settings

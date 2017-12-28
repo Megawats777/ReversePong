@@ -78,78 +78,48 @@ public class Paddle : MonoBehaviour
     // Select new colour state
     public void selectNewColourState(ColourStates colourStateTold)
     {
+        Random.InitState((int)System.DateTime.Now.Millisecond);
+        ColourStates chosenColourState;
 
-        // Based on what the other paddle told you
-        // about its colour state
-
-        // If the colour state told was red
-        if (colourStateTold == ColourStates.Red)
+        // Select a random colour state
+        int result = Random.Range(0, 3);
+        switch (result)
         {
-            // Select either blue or green as your new colour state
-            int result = (int)Random.value;
+            case 0:
+                chosenColourState = ColourStates.Red;
+                break;
 
-            switch (result)
-            {
-                case 0:
-                    currentColourState = ColourStates.Blue;
-                    break;
+            case 1:
+                chosenColourState = ColourStates.Blue;
+                break;
 
-                case 1:
-                    currentColourState = ColourStates.Green;
-                    break;
+            case 2:
+                chosenColourState = ColourStates.Green;
+                break;
 
-                default:
-                    currentColourState = ColourStates.Blue;
-                    break;
-            }
+
+            default:
+                chosenColourState = ColourStates.Red;
+                break;
         }
 
-        // If the colour state told was green
-        else if (colourStateTold == ColourStates.Green)
+        // If the colour state chosen is the same as the colour
+        // of the player
+        if (chosenColourState == player.currentColourState)
         {
-            // Select either red or blue as your new colour state
-            int result = (int)Random.value;
-
-            switch (result)
-            {
-                case 0:
-                    currentColourState = ColourStates.Red;
-                    break;
-
-                case 1:
-                    currentColourState = ColourStates.Blue;
-                    break;
-
-                default:
-                    currentColourState = ColourStates.Red;
-                    break;
-            }
+            // Call this function again
+            selectNewColourState(colourStateTold);
         }
 
-        // If the colour state told was blue
-        else if (colourStateTold == ColourStates.Blue)
+        // Otherwise
+        else
         {
-            // Select either red or green as your new colour state
-            int result = (int)Random.value;
-
-            switch (result)
-            {
-                case 0:
-                    currentColourState = ColourStates.Red;
-                    break;
-
-                case 1:
-                    currentColourState = ColourStates.Green;
-                    break;
-
-                default:
-                    currentColourState = ColourStates.Red;
-                    break;
-            }
+            // Set the chosen colour state as the current one
+            // Apply colour state settings
+            currentColourState = chosenColourState;
+            applyColourStateSettings(currentColourState);
         }
 
-        // Apply colour state settings
-        applyColourStateSettings(currentColourState);
     }
 
     // Apply Colour state settings
