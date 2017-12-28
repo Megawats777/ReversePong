@@ -1,0 +1,41 @@
+--For Paddles--
+
+    --On Start
+
+        // Select a random colour state
+
+
+    --Selecting a new colour state after a collision
+
+        // When collided
+
+            // Set the colour of your paddle to be black
+
+
+            // Tell the opposite paddle your colour state
+
+
+                --For the opposite paddle
+
+                // Based on what the other paddle told you
+                // about its colour state
+
+                    // If the colour state told was red
+
+
+                        // Select either blue or green as your new colour state
+
+
+                    // If the colour state told was green
+
+
+                        // Select either green or blue as your new colour state
+
+
+                    // If the colour state told was blue
+
+
+                        // Select either red or green as your new colour state
+
+
+                    // Apply colour state settings

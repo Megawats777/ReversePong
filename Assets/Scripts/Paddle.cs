@@ -36,19 +36,18 @@ public class Paddle : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        setColourState();
+        setRandomColourState();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Random.InitState((int)Time.realtimeSinceStartup);
     }
 
-    // Set colour state
-    private void setColourState()
+    // Set random colour state
+    private void setRandomColourState()
     {
-
         int selectionNum = Random.Range(0, 3);
 
         // Depending on the selection num determine the current colour state
@@ -71,29 +70,86 @@ public class Paddle : MonoBehaviour
                 break;
         }
 
-        if (currentColourState == previousColourState)
+        // Depending on the colour state determine the material for this paddle
+        applyColourStateSettings(currentColourState);
+    }
+
+
+    // Select new colour state
+    public void selectNewColourState(ColourStates colourStateTold)
+    {
+
+        // Based on what the other paddle told you
+        // about its colour state
+
+        // If the colour state told was red
+        if (colourStateTold == ColourStates.Red)
         {
-            setColourState();
+            // Select either blue or green as your new colour state
+            int result = (int)Random.value;
+
+            switch (result)
+            {
+                case 0:
+                    currentColourState = ColourStates.Blue;
+                    break;
+
+                case 1:
+                    currentColourState = ColourStates.Green;
+                    break;
+
+                default:
+                    currentColourState = ColourStates.Blue;
+                    break;
+            }
         }
-        else
+
+        // If the colour state told was green
+        else if (colourStateTold == ColourStates.Green)
         {
-            if (currentColourState == opositePaddle.currentColourState)
+            // Select either red or blue as your new colour state
+            int result = (int)Random.value;
+
+            switch (result)
             {
-                setColourState();
+                case 0:
+                    currentColourState = ColourStates.Red;
+                    break;
+
+                case 1:
+                    currentColourState = ColourStates.Blue;
+                    break;
+
+                default:
+                    currentColourState = ColourStates.Red;
+                    break;
             }
-
-            else
-            {
-                previousColourState = currentColourState;
-
-                // Depending on the colour state determine the material for this paddle
-                applyColourStateSettings(currentColourState);
-            }
-
         }
 
+        // If the colour state told was blue
+        else if (colourStateTold == ColourStates.Blue)
+        {
+            // Select either red or green as your new colour state
+            int result = (int)Random.value;
 
+            switch (result)
+            {
+                case 0:
+                    currentColourState = ColourStates.Red;
+                    break;
 
+                case 1:
+                    currentColourState = ColourStates.Green;
+                    break;
+
+                default:
+                    currentColourState = ColourStates.Red;
+                    break;
+            }
+        }
+
+        // Apply colour state settings
+        applyColourStateSettings(currentColourState);
     }
 
     // Apply Colour state settings
@@ -127,7 +183,7 @@ public class Paddle : MonoBehaviour
 
             if (opositePaddle)
             {
-                opositePaddle.setColourState();
+                opositePaddle.selectNewColourState(currentColourState);
             }
         }
 
