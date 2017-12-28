@@ -9,7 +9,7 @@ public class Paddle : MonoBehaviour
     // Index 0: Red
     // Index 1: Green
     // Index 2: Blue
-    [HeaderAttribute("Colour State Variables"),SerializeField]
+    [HeaderAttribute("Colour State Variables"), SerializeField]
     private Material[] stateMaterials;
 
     // Current colour state
@@ -42,7 +42,7 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
     // Set colour state
@@ -87,20 +87,7 @@ public class Paddle : MonoBehaviour
                 previousColourState = currentColourState;
 
                 // Depending on the colour state determine the material for this paddle
-                if (currentColourState == ColourStates.Red)
-                {
-                    renderer.material = stateMaterials[0];
-                }
-
-                else if (currentColourState == ColourStates.Green)
-                {
-                    renderer.material = stateMaterials[1];
-                }
-
-                else if (currentColourState == ColourStates.Blue)
-                {
-                    renderer.material = stateMaterials[2];
-                }
+                applyColourStateSettings(currentColourState);
             }
 
         }
@@ -109,6 +96,26 @@ public class Paddle : MonoBehaviour
 
     }
 
+    // Apply Colour state settings
+    private void applyColourStateSettings(ColourStates colourState)
+    {
+        if (currentColourState == ColourStates.Red)
+        {
+            renderer.material = stateMaterials[0];
+        }
+
+        else if (currentColourState == ColourStates.Green)
+        {
+            renderer.material = stateMaterials[1];
+        }
+
+        else if (currentColourState == ColourStates.Blue)
+        {
+            renderer.material = stateMaterials[2];
+        }
+    }
+
+
     // On Collision
     void OnCollisionEnter(Collision collision)
     {
@@ -116,7 +123,7 @@ public class Paddle : MonoBehaviour
         // and the player's colour state is the same as this one
         if (collision.gameObject.CompareTag("Player") && currentColourState == player.currentColourState)
         {
-            player.reverseMovement();       
+            player.reverseMovement();
 
             if (opositePaddle)
             {
@@ -125,9 +132,9 @@ public class Paddle : MonoBehaviour
         }
 
         // Otherwise
-		else
-		{
-			StartCoroutine(GameStateController.endGame());
-		}
+        else
+        {
+            StartCoroutine(GameStateController.endGame());
+        }
     }
 }
