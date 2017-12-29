@@ -9,12 +9,17 @@ public class GameplayHUDLayer : MonoBehaviour
     [HeaderAttribute("HUD Elements")]
     public Text bounceCountText;
     public Text targetText;
+    
+    // Animation elements
+    private Animation animComp;
+    public AnimationClip showAnimClip;
 
     // External references
     PlayerBouncingObject player;
 
     void Awake()
     {
+        animComp = GetComponent<Animation>();
         player = FindObjectOfType<PlayerBouncingObject>();
     }
 
@@ -22,7 +27,8 @@ public class GameplayHUDLayer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        animComp.clip = showAnimClip;
+        animComp.Play();
     }
 
     // Update is called once per frame
