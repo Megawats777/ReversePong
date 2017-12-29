@@ -30,6 +30,7 @@ public class HUDLayerController : MonoBehaviour
 	public void showStartingHUDLayer()
 	{
 		startingHUDLayer.gameObject.SetActive(true);
+		startingHUDLayer.show();
 	}
 
 	public void hideStartingHUDLayer()

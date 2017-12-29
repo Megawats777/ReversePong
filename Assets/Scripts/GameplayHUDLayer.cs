@@ -37,6 +37,19 @@ public class GameplayHUDLayer : MonoBehaviour
         updateHUDElements();
     }
 
+    // Show this HUD layer
+    public void show()
+    {
+        animComp.clip = showAnimClip;
+        animComp.Play();
+    }
+
+    // Hide this HUD layer
+    public void hide()
+    {
+
+    }
+
     // Update HUD elements
     private void updateHUDElements()
     {
