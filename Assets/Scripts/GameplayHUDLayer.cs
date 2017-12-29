@@ -34,7 +34,7 @@ public class GameplayHUDLayer : MonoBehaviour
     // Update HUD elements
     private void updateHUDElements()
     {
-        bounceCountText.text = "Bounces: " + player.bounceCount;
-        targetText.text = "Target: " + ScoreTargetController.scoreTarget;
+        bounceCountText.text = player.bounceCount.ToString();
+        targetText.text = ScoreTargetController.scoreTarget.ToString();
     }
 }
