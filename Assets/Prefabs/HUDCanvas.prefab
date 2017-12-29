@@ -191,7 +191,6 @@ GameObject:
   m_Component:
   - component: {fileID: 224815088681183784}
   - component: {fileID: 114436336728818572}
-  - component: {fileID: 111010823445520084}
   m_Layer: 5
   m_Name: GameplayHUD
   m_TagString: Untagged
@@ -412,26 +411,12 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 120e994f5ea341d45b9e4aa2d702d40e, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!111 &111010823445520084
-Animation:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1372498666476404}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &114009099343148024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -725,7 +710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceCountText: {fileID: 114778072161391160}
   targetText: {fileID: 114654896947289772}
-  showAnimClip: {fileID: 7400000, guid: ef7415510a1ad9645b2ec2dc9e6ddb53, type: 2}
+  animComp: {fileID: 95042240891153180}
 --- !u!114 &114463791255544962
 MonoBehaviour:
   m_ObjectHideFlags: 1

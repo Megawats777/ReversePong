@@ -44,11 +44,12 @@ public class HUDLayerController : MonoBehaviour
 	public void showGameplayHUDLayer()
 	{
 		gameplayHUDLayer.gameObject.SetActive(true);
+		gameplayHUDLayer.show();
 	}
 
 	public void hideGameplayHUDLayer()
 	{
-		gameplayHUDLayer.gameObject.SetActive(false);
+		gameplayHUDLayer.hide();
 	}
 
 

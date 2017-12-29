@@ -11,15 +11,14 @@ public class GameplayHUDLayer : MonoBehaviour
     public Text targetText;
     
     // Animation elements
-    private Animation animComp;
-    public AnimationClip showAnimClip;
+    [SerializeField]
+    private Animator animComp;
 
     // External references
     PlayerBouncingObject player;
 
     void Awake()
     {
-        animComp = GetComponent<Animation>();
         player = FindObjectOfType<PlayerBouncingObject>();
     }
 
@@ -27,8 +26,7 @@ public class GameplayHUDLayer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        animComp.clip = showAnimClip;
-        animComp.Play();
+        
     }
 
     // Update is called once per frame
@@ -40,14 +38,15 @@ public class GameplayHUDLayer : MonoBehaviour
     // Show this HUD layer
     public void show()
     {
-        animComp.clip = showAnimClip;
-        animComp.Play();
+        animComp.SetBool("isShowing", true);
+        animComp.SetBool("isHiding", false);
     }
 
     // Hide this HUD layer
     public void hide()
     {
-
+        animComp.SetBool("isHiding", true);
+        animComp.SetBool("isShowing", false);
     }
 
     // Update HUD elements
