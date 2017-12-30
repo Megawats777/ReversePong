@@ -557,6 +557,7 @@ MonoBehaviour:
   playerBounceResultText: {fileID: 114551295421485806}
   restartButton: {fileID: 114817191487695108}
   quitButton: {fileID: 114980764393968470}
+  animComp: {fileID: 95991287025061024}
 --- !u!114 &114074724993028880
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -14,6 +14,10 @@ public class GameOverHUDLayer : MonoBehaviour
 	public Button restartButton;
 	public Button quitButton;
 
+
+	// Animation elements
+	public Animator animComp;
+
 	// External references
 	private PlayerBouncingObject player;
 
@@ -43,7 +47,8 @@ public class GameOverHUDLayer : MonoBehaviour
 		});
 
 		quitButton.onClick.AddListener(delegate{
-			Application.Quit();
+			hide();
+			// Application.Quit();
 		});
 
 		// Set the content of the title based on whether the player
@@ -60,5 +65,15 @@ public class GameOverHUDLayer : MonoBehaviour
 
 		scoreGoalText.text = ScoreTargetController.scoreTarget.ToString();
 		playerBounceResultText.text = player.bounceCount.ToString();
+	
+		animComp.SetBool("isShowing", true);
+		animComp.SetBool("isHiding", false);
+	}
+
+	// Hide this HUD layer
+	public void hide()
+	{
+		animComp.SetBool("isShowing", false);
+		animComp.SetBool("isHiding", true);
 	}
 }
