@@ -50,7 +50,7 @@ public class GameOverHUDLayer : MonoBehaviour
 		// reached the score target
 		if (player.bounceCount == ScoreTargetController.scoreTarget)
 		{
-			titleText.text = "You Win!";
+			titleText.text = "You Win";
 		}
 
 		else
@@ -58,7 +58,7 @@ public class GameOverHUDLayer : MonoBehaviour
 			titleText.text = "You Lose";
 		}
 
-		scoreGoalText.text = "Bounce " + ScoreTargetController.scoreTarget + " time(s)";
-		playerBounceResultText.text = "Bounced " + player.bounceCount + " time(s)";
+		scoreGoalText.text = ScoreTargetController.scoreTarget.ToString();
+		playerBounceResultText.text = player.bounceCount.ToString();
 	}
 }
