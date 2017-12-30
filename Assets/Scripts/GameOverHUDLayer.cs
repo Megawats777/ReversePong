@@ -43,12 +43,13 @@ public class GameOverHUDLayer : MonoBehaviour
 	public void show()
 	{
 		restartButton.onClick.AddListener(delegate{
+			hide();
 			SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
 		});
 
 		quitButton.onClick.AddListener(delegate{
 			hide();
-			// Application.Quit();
+			Application.Quit();
 		});
 
 		// Set the content of the title based on whether the player
@@ -73,6 +74,8 @@ public class GameOverHUDLayer : MonoBehaviour
 	// Hide this HUD layer
 	public void hide()
 	{
+		restartButton.interactable = false;
+		quitButton.interactable = false;
 		animComp.SetBool("isShowing", false);
 		animComp.SetBool("isHiding", true);
 	}
