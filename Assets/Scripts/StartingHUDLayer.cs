@@ -30,7 +30,10 @@ public class StartingHUDLayer : MonoBehaviour
 	// Hide this layer
 	public IEnumerator hide()
 	{
+		int fontSizeIncreaseFactor = 20;
+
 		statusText.text = "Start!";
+		statusText.fontSize += fontSizeIncreaseFactor;
 		yield return new WaitForSeconds(1.0f);
 		statusText.enabled = false;
 	}
