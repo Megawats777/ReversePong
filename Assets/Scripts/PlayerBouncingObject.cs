@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// The player bouncing object class
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
