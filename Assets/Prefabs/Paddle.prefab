@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 65918658126268562}
   - component: {fileID: 23705039528317678}
   - component: {fileID: 114633703228411404}
-  - component: {fileID: 54760493503931974}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -85,21 +84,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1943490633046692}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54760493503931974
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1943490633046692}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
 --- !u!65 &65918658126268562
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -124,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disabledMaterial: {fileID: 2100000, guid: 491f356fafdac2c41acffd4757ce01de, type: 2}
+  isFirstPaddle: 0
   stateMaterials:
   - {fileID: 2100000, guid: 386cdc3de7769474b985db6ee97b3644, type: 2}
   - {fileID: 2100000, guid: da9733a43f277f04687b5cef4e1563a5, type: 2}
