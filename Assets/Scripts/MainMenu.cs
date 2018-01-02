@@ -2,35 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-	// Global ui elements
-	[HeaderAttribute("Global UI Elements")]
-	public Text currentScreenIndicator;
-	public Text loadingText;
+    // Global ui elements
+    [HeaderAttribute("Global UI Elements")]
+    public Text currentScreenIndicator;
+    public Text loadingText;
 
 
-	// HUD layers
-	[HeaderAttribute("HUD Layers")]
-	public GameObject welcomeScreen;
-	public GameObject helpScreen;
-	public GameObject optionsScreen;
-	public GameObject creditsScreen;
+    // HUD layers
+    [HeaderAttribute("HUD Layers")]
+    public GameObject welcomeScreen;
+    public GameObject helpScreen;
+    public GameObject optionsScreen;
+    public GameObject creditsScreen;
 
 
-	// Welcome screen elements
-	[HeaderAttribute("Welcome Screen Elements")]
-	public Button playButton;
-	public Button helpButton;
-	public Button optionsButton;
-	public Button creditsButton;
-	public Button quitButton;
+    // Welcome screen elements
+    [HeaderAttribute("Welcome Screen Elements")]
+    public Button playButton;
+    public Button helpButton;
+    public Button optionsButton;
+    public Button creditsButton;
+    public Button quitButton;
 
     // Use this for initialization
     void Start()
     {
-		loadingText.gameObject.SetActive(false);
+		welcomeScreen_assignButtonFunctions();
+        loadingText.gameObject.SetActive(false);
+        welcomeScreen_show();
     }
 
     // Update is called once per frame
@@ -39,50 +42,95 @@ public class MainMenu : MonoBehaviour
 
     }
 
-	// UI visibiliy functions
-
-	void welcomeScreen_show()
+	// Start the game
+	private IEnumerator startGame()
 	{
+		float startDelay = 2.0f;
 
-	}
+		welcomeScreen_hide();
+		currentScreenIndicator.gameObject.SetActive(false);
+		loadingText.gameObject.SetActive(true);
 
-	void welcomeScreen_hide()
-	{
-
-	}
-
-
-
-	void helpScreen_show()
-	{
-
-	}
-
-	void helpScreen_hide()
-	{
-
+		yield return new WaitForSeconds(startDelay);
+	
+		SceneManager.LoadSceneAsync("GameArea");
 	}
 
 
-
-	void optionsScreen_show()
+	// Welcome screen functions
+	private void welcomeScreen_assignButtonFunctions()
 	{
-
-	}
-
-	void optionsScreen_hide()
-	{
-
+		playButton.onClick.AddListener(delegate{
+			StartCoroutine(startGame());
+		});
 	}
 
 
-	void creditsScreen_show()
-	{
+    // UI visibiliy functions
 
-	}
+    void welcomeScreen_show()
+    {
+        string screenMessage = "Welcome";
 
-	void creditsScreen_hide()
-	{
-		
-	}
+        // Set the text of the screen indicator object
+        // Set the layer to be active
+        currentScreenIndicator.text = screenMessage;
+        welcomeScreen.SetActive(true);
+    }
+
+    void welcomeScreen_hide()
+    {
+        welcomeScreen.SetActive(false);
+    }
+
+
+
+    void helpScreen_show()
+    {
+        string screenMessage = "Welcome";
+
+        // Set the text of the screen indicator object
+        // Set the layer to be active
+        currentScreenIndicator.text = screenMessage;
+        helpScreen.SetActive(true);
+    }
+
+    void helpScreen_hide()
+    {
+        helpScreen.SetActive(false);
+    }
+
+
+
+    void optionsScreen_show()
+    {
+        string screenMessage = "Welcome";
+
+        // Set the text of the screen indicator object
+        // Set the layer to be active
+        currentScreenIndicator.text = screenMessage;
+        optionsScreen.SetActive(true);
+    }
+
+    void optionsScreen_hide()
+    {
+        optionsScreen.SetActive(false);
+    }
+
+
+
+    void creditsScreen_show()
+    {
+        string screenMessage = "Welcome";
+
+        // Set the text of the screen indicator object
+        // Set the layer to be active
+        currentScreenIndicator.text = screenMessage;
+        creditsScreen.SetActive(true);
+    }
+
+    void creditsScreen_hide()
+    {
+        creditsScreen.SetActive(false);
+    }
 }

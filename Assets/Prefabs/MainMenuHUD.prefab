@@ -471,6 +471,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentScreenIndicator: {fileID: 114631253901365246}
   loadingText: {fileID: 114783219926394790}
+  welcomeScreen: {fileID: 1902346000825308}
+  helpScreen: {fileID: 1055300299329494}
+  optionsScreen: {fileID: 1632019029352022}
+  creditsScreen: {fileID: 1826794306610520}
+  playButton: {fileID: 114712107841523086}
+  helpButton: {fileID: 114234571390788584}
+  optionsButton: {fileID: 114534043831624688}
+  creditsButton: {fileID: 114831791229423228}
+  quitButton: {fileID: 114051247785011564}
 --- !u!114 &114234571390788584
 MonoBehaviour:
   m_ObjectHideFlags: 1
