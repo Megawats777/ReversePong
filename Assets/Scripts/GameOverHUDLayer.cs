@@ -43,13 +43,11 @@ public class GameOverHUDLayer : MonoBehaviour
 	public void show()
 	{
 		restartButton.onClick.AddListener(delegate{
-			hide();
-			SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+			StartCoroutine(reloadLevel());	
 		});
 
 		quitButton.onClick.AddListener(delegate{
-			hide();
-			Application.Quit();
+			StartCoroutine(goToMainMenu());
 		});
 
 		// Set the content of the title based on whether the player
@@ -78,5 +76,25 @@ public class GameOverHUDLayer : MonoBehaviour
 		quitButton.interactable = false;
 		animComp.SetBool("isShowing", false);
 		animComp.SetBool("isHiding", true);
+	}
+
+	// Reload level
+	private IEnumerator reloadLevel()
+	{
+		hide();
+		
+		yield return new WaitForSeconds(3.0f);
+
+		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+	}
+
+	// Go to the main menu
+	private IEnumerator goToMainMenu()
+	{
+		hide();
+		
+		yield return new WaitForSeconds(3.0f);
+	
+		SceneManager.LoadSceneAsync("MainMenu");
 	}
 }
