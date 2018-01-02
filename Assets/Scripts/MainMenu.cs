@@ -11,12 +11,12 @@ public class MainMenu : MonoBehaviour
     public Text currentScreenIndicator;
     public Text loadingText;
     public Image background;
+    public Animator fadeImageAnimator;
 
     // HUD layers
     [HeaderAttribute("HUD Layers")]
     public GameObject welcomeScreen;
     public GameObject helpScreen;
-    public GameObject optionsScreen;
     public GameObject creditsScreen;
 
 
@@ -50,6 +50,7 @@ public class MainMenu : MonoBehaviour
 		currentScreenIndicator.gameObject.SetActive(false);
 		loadingText.gameObject.SetActive(true);
         background.enabled = false;
+        fadeImageAnimator.SetBool("isShowing", true);
 
 		yield return new WaitForSeconds(startDelay);
 	
@@ -104,24 +105,7 @@ public class MainMenu : MonoBehaviour
         helpScreen.SetActive(false);
     }
 
-
-
-    void optionsScreen_show()
-    {
-        string screenMessage = "Welcome";
-
-        // Set the text of the screen indicator object
-        // Set the layer to be active
-        currentScreenIndicator.text = screenMessage;
-        optionsScreen.SetActive(true);
-    }
-
-    void optionsScreen_hide()
-    {
-        optionsScreen.SetActive(false);
-    }
-
-
+    
 
     void creditsScreen_show()
     {
