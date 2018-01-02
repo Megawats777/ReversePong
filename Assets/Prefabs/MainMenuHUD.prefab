@@ -277,6 +277,7 @@ GameObject:
   - component: {fileID: 223559455099878578}
   - component: {fileID: 114112076319598106}
   - component: {fileID: 114365370070011992}
+  - component: {fileID: 114147483902268100}
   m_Layer: 5
   m_Name: MainMenuHUD
   m_TagString: Untagged
@@ -457,6 +458,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Quit
+--- !u!114 &114147483902268100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1763397350170150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf2caf6f5f960544c9f66571d92b80f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentScreenIndicator: {fileID: 114631253901365246}
+  loadingText: {fileID: 114783219926394790}
 --- !u!114 &114234571390788584
 MonoBehaviour:
   m_ObjectHideFlags: 1
