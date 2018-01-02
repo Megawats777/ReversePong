@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     [HeaderAttribute("Global UI Elements")]
     public Text currentScreenIndicator;
     public Text loadingText;
-
+    public Image background;
 
     // HUD layers
     [HeaderAttribute("HUD Layers")]
@@ -24,7 +24,6 @@ public class MainMenu : MonoBehaviour
     [HeaderAttribute("Welcome Screen Elements")]
     public Button playButton;
     public Button helpButton;
-    public Button optionsButton;
     public Button creditsButton;
     public Button quitButton;
 
@@ -50,6 +49,7 @@ public class MainMenu : MonoBehaviour
 		welcomeScreen_hide();
 		currentScreenIndicator.gameObject.SetActive(false);
 		loadingText.gameObject.SetActive(true);
+        background.enabled = false;
 
 		yield return new WaitForSeconds(startDelay);
 	
@@ -63,6 +63,10 @@ public class MainMenu : MonoBehaviour
 		playButton.onClick.AddListener(delegate{
 			StartCoroutine(startGame());
 		});
+
+        quitButton.onClick.AddListener(delegate{
+            Application.Quit();
+        });
 	}
 
 
