@@ -44,12 +44,15 @@ public class MainMenu : MonoBehaviour
 	// Start the game
 	private IEnumerator startGame()
 	{
-		float startDelay = 2.0f;
+		float startDelay = 2.5f;
 
 		welcomeScreen_hide();
 		currentScreenIndicator.gameObject.SetActive(false);
 		loadingText.gameObject.SetActive(true);
         background.enabled = false;
+
+        yield return new WaitForSeconds(1.0f);
+
         fadeImageAnimator.SetBool("isShowing", true);
 
 		yield return new WaitForSeconds(startDelay);
