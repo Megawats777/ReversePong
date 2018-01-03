@@ -1,17 +1,27 @@
 fileFormatVersion: 2
-guid: 825e9027f3b3aa4409e2b9f8efaf719a
-timeCreated: 1514417024
+guid: 7445a9d3987aae84789552c48599707e
+timeCreated: 1515014816
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
+    100000: Camera
+    100002: Lamp
+    100004: //RootNode
+    100006: SM_Car
+    100008: Root
+    400000: Camera
+    400002: Lamp
+    400004: //RootNode
+    400006: SM_Car
+    400008: Root
+    2000000: Camera
+    2300000: SM_Car
+    2300002: //RootNode
+    3300000: SM_Car
+    3300002: //RootNode
     4300000: SM_Car
-    7400000: Default Take
-    9500000: //RootNode
+    10800000: Lamp
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -23,11 +33,6 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: BottomLights
     second: {fileID: 2100000, guid: a4a04240126e3ec43b735d84a83ab2e4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: f3f7e687b263ca641a7bb48ed949f2ba, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -62,7 +67,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.65
+    globalScale: 0.7
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -70,7 +75,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -104,7 +109,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
