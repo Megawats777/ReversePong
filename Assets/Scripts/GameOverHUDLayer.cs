@@ -87,7 +87,8 @@ public class GameOverHUDLayer : MonoBehaviour
 		statusText.text = "Restarting...";
 		
 		hide();
-		
+		fadeImageAnimComp.SetBool("isHiding", false);
+
 		yield return new WaitForSeconds(3.0f);
 
 		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
