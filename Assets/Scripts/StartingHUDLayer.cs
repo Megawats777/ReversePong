@@ -8,6 +8,7 @@ public class StartingHUDLayer : MonoBehaviour
 	// HUD Elements
 	[HeaderAttribute("HUD Elements")]
 	public Text statusText;
+	public Animator animComp;
 
     // Use this for initialization
     void Start()
@@ -30,11 +31,13 @@ public class StartingHUDLayer : MonoBehaviour
 	// Hide this layer
 	public IEnumerator hide()
 	{
-		int fontSizeIncreaseFactor = 20;
+		int fontIncreaseAmount = 20;
 
 		statusText.text = "Start!";
-		statusText.fontSize += fontSizeIncreaseFactor;
+		statusText.fontSize += fontIncreaseAmount;
+
 		yield return new WaitForSeconds(1.0f);
-		statusText.enabled = false;
+		
+		animComp.SetBool("isShowing", false);
 	}
 }
