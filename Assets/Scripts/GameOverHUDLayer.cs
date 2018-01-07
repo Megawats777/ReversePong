@@ -17,6 +17,7 @@ public class GameOverHUDLayer : MonoBehaviour
 
 	// Animation elements
 	public Animator animComp;
+	public Animator fadeImageAnimComp;
 
 	// External references
 	private PlayerBouncingObject player;
@@ -92,7 +93,8 @@ public class GameOverHUDLayer : MonoBehaviour
 	private IEnumerator goToMainMenu()
 	{
 		hide();
-		
+		fadeImageAnimComp.SetBool("isHiding", false);
+
 		yield return new WaitForSeconds(3.0f);
 	
 		SceneManager.LoadSceneAsync("MainMenu");
