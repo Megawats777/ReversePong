@@ -13,7 +13,8 @@ public class GameOverHUDLayer : MonoBehaviour
 	public Text playerBounceResultText;
 	public Button restartButton;
 	public Button quitButton;
-
+	[SerializeField]
+	private Text statusText;
 
 	// Animation elements
 	public Animator animComp;
@@ -82,6 +83,9 @@ public class GameOverHUDLayer : MonoBehaviour
 	// Reload level
 	private IEnumerator reloadLevel()
 	{
+		statusText.gameObject.SetActive(true);
+		statusText.text = "Restarting...";
+		
 		hide();
 		
 		yield return new WaitForSeconds(3.0f);
@@ -92,6 +96,9 @@ public class GameOverHUDLayer : MonoBehaviour
 	// Go to the main menu
 	private IEnumerator goToMainMenu()
 	{
+		statusText.gameObject.SetActive(true);
+		statusText.text = "Loading...";
+
 		hide();
 		fadeImageAnimComp.SetBool("isHiding", false);
 

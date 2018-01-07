@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HUDLayerController : MonoBehaviour
 {
@@ -12,9 +13,14 @@ public class HUDLayerController : MonoBehaviour
 	[SerializeField]
 	private StartingHUDLayer startingHUDLayer;
 
+	// Ui Elements
+	[HeaderAttribute("Ui Elements"), SerializeField]
+	private Text statusText;
+
     // Use this for initialization
     void Start()
     {
+		statusText.gameObject.SetActive(false);
 		gameplayHUDLayer.gameObject.SetActive(false);
 		gameOverHUDLayer.gameObject.SetActive(false);
     }
