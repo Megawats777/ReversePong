@@ -20,6 +20,12 @@ public class Paddle : MonoBehaviour
     // Current colour state
     public ColourStates currentColourState = ColourStates.Red;
 
+    // Colour state explosition particle effect
+    [SerializeField]
+    private GameObject effectSpawnPoint;
+    [SerializeField]
+    private ParticleSystem colourStateExplosionEffect;
+
     // Target visual colour
     private Color targetVisualColour = Color.black;
     private Color redPaddleColour;
@@ -157,6 +163,12 @@ public class Paddle : MonoBehaviour
         }
     }
 
+    // Spawn particle effect
+    private void spawnParticleEffect()
+    {
+        Instantiate(colourStateExplosionEffect, effectSpawnPoint.transform.position, Quaternion.identity);
+    }
+
 
     // On Collision
     void OnCollisionEnter(Collision collision)
@@ -171,6 +183,7 @@ public class Paddle : MonoBehaviour
 
                 if (opositePaddle)
                 {
+                    spawnParticleEffect();
                     targetVisualColour = disabledPaddleColour;
                     opositePaddle.selectNewColourState();
                 }
