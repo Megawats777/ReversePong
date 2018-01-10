@@ -24,7 +24,7 @@ public class Paddle : MonoBehaviour
     [SerializeField]
     private GameObject effectSpawnPoint;
     [SerializeField]
-    private ParticleSystem colourStateExplosionEffect;
+    private ParticleSystem[] colourStateExplosionEffect;
 
     // Target visual colour
     private Color targetVisualColour = Color.black;
@@ -133,7 +133,7 @@ public class Paddle : MonoBehaviour
                     chosenColourState = ColourStates.Red;
                     break;
             }
-            
+
         } while (chosenColourState == player.currentColourState);
 
         // Set the chosen colour state as the current one
@@ -166,7 +166,29 @@ public class Paddle : MonoBehaviour
     // Spawn particle effect
     private void spawnParticleEffect()
     {
-        Instantiate(colourStateExplosionEffect, effectSpawnPoint.transform.position, Quaternion.identity);
+        int selectedIndex = 0;
+
+        switch (currentColourState)
+        {
+            case ColourStates.Red:
+                selectedIndex = 0;
+                break;
+
+            case ColourStates.Green:
+                selectedIndex = 1;
+                break;
+
+            case ColourStates.Blue:
+                selectedIndex = 2;
+                break;
+
+            default:
+                selectedIndex = 0;
+                break;
+        }
+
+        GameObject spawnedEffect = Instantiate(colourStateExplosionEffect[selectedIndex], effectSpawnPoint.transform.position, Quaternion.identity).gameObject;
+        Destroy(spawnedEffect, 10.0f);
     }
 
 

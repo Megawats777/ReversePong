@@ -11,21 +11,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1943490633046692}
   m_IsPrefabParent: 1
---- !u!1 &1182595351740660
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4922183676677266}
-  m_Layer: 0
-  m_Name: VFX_SpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1943490633046692
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,24 +39,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 6}
   m_LocalScale: {x: 3.5, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4922183676677266}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4922183676677266
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1182595351740660}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.9, z: 2.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4649590503279784}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!23 &23705039528317678
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -143,7 +114,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: da9733a43f277f04687b5cef4e1563a5, type: 2}
   - {fileID: 2100000, guid: c0c67af4e5f2a61439625067d3791924, type: 2}
   currentColourState: 0
-  effectSpawnPoint: {fileID: 1182595351740660}
-  colourStateExplosionEffect: {fileID: 198578849937558310, guid: e6aef6862e3b8184d9b123908b95811d,
-    type: 2}
+  effectSpawnPoint: {fileID: 0}
+  colourStateExplosionEffect:
+  - {fileID: 198286110092184636, guid: 449b3a8e90de2f843b6a9f28272d6f6e, type: 2}
+  - {fileID: 198628260736791466, guid: af587ecbd7ee2484c996a1851e25b7b6, type: 2}
+  - {fileID: 198874991796862728, guid: 0b4fc1e6110da4d498310d7369984c5e, type: 2}
   opositePaddle: {fileID: 0}
