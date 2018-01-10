@@ -20,8 +20,15 @@ public class Paddle : MonoBehaviour
     // Current colour state
     public ColourStates currentColourState = ColourStates.Red;
 
+    // Target visual colour
+    private Color targetVisualColour = Color.black;
+    private Color redPaddleColour;
+    private Color greenPaddleColour;
+    private Color bluePaddleColour;
+    private Color disabledPaddleColour;
+
     // Components
-    Renderer renderer;
+    Renderer rendererComp;
 
 
     // External references
@@ -32,7 +39,7 @@ public class Paddle : MonoBehaviour
 
     void Awake()
     {
-        renderer = GetComponent<Renderer>();
+        rendererComp = GetComponent<Renderer>();
         player = FindObjectOfType<PlayerBouncingObject>();
         hudLayerController = FindObjectOfType<HUDLayerController>();
     }
@@ -40,18 +47,25 @@ public class Paddle : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        redPaddleColour = stateMaterials[0].color;
+        greenPaddleColour = stateMaterials[1].color;
+        bluePaddleColour = stateMaterials[2].color;
+        disabledPaddleColour = disabledMaterial.color;
+
         setRandomColourState();
 
         if (isFirstPaddle == false)
         {
-            renderer.material = disabledMaterial;
+            targetVisualColour = disabledPaddleColour;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        // Always blend to the target colour
+        float colourBlendSpeed = 10.0f;
+        rendererComp.material.color = Color.Lerp(rendererComp.material.color, targetVisualColour, Time.deltaTime * colourBlendSpeed);
     }
 
     // Set random colour state
@@ -129,17 +143,17 @@ public class Paddle : MonoBehaviour
     {
         if (currentColourState == ColourStates.Red)
         {
-            renderer.material = stateMaterials[0];
+            targetVisualColour = redPaddleColour;
         }
 
         else if (currentColourState == ColourStates.Green)
         {
-            renderer.material = stateMaterials[1];
+            targetVisualColour = greenPaddleColour;
         }
 
         else if (currentColourState == ColourStates.Blue)
         {
-            renderer.material = stateMaterials[2];
+            targetVisualColour = bluePaddleColour;
         }
     }
 
@@ -157,7 +171,7 @@ public class Paddle : MonoBehaviour
 
                 if (opositePaddle)
                 {
-                    renderer.material = disabledMaterial;
+                    targetVisualColour = disabledPaddleColour;
                     opositePaddle.selectNewColourState();
                 }
             }
