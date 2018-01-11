@@ -10,6 +10,9 @@ public class PaddleCollisionSoundScript : MonoBehaviour
     [SerializeField]
     private float maxSoundPitch = 1.0f;
 
+    [SerializeField]
+    private float soundPitchIncreaseInterval = 0.05f;
+
     // Component references
     private AudioSource audioSourceComp;
 
@@ -22,7 +25,7 @@ public class PaddleCollisionSoundScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        audioSourceComp.pitch = minSoundPitch;
     }
 
     // Update is called once per frame
@@ -34,9 +37,9 @@ public class PaddleCollisionSoundScript : MonoBehaviour
     // Play sound
     public void playSound()
     {
-        // Set a random pitch for the audio source
-        float newPitch = Random.Range(minSoundPitch, maxSoundPitch);
-        audioSourceComp.pitch = newPitch;
+        // Increase the pitch of the audio sournce
+        audioSourceComp.pitch += soundPitchIncreaseInterval;
+        audioSourceComp.pitch = Mathf.Clamp(audioSourceComp.pitch, minSoundPitch, maxSoundPitch);
 
         // Play the sound
         audioSourceComp.Play();

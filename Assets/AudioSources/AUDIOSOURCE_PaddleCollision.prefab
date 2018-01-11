@@ -132,5 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79accfab6abd902469a2dea13810b71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSoundPitch: 0.85
+  minSoundPitch: 0.45
   maxSoundPitch: 1.1
+  soundPitchIncreaseInterval: 0.04
