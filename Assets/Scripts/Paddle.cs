@@ -36,6 +36,9 @@ public class Paddle : MonoBehaviour
     // Components
     Renderer rendererComp;
 
+    // Audio Source
+    [SerializeField]
+    private AudioSource collisionAudioSource;
 
     // External references
     PlayerBouncingObject player;
@@ -205,6 +208,7 @@ public class Paddle : MonoBehaviour
 
                 if (opositePaddle)
                 {
+                    collisionAudioSource.Play();
                     spawnParticleEffect();
                     targetVisualColour = disabledPaddleColour;
                     opositePaddle.selectNewColourState();
