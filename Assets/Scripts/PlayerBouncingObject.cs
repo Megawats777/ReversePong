@@ -37,6 +37,8 @@ public class PlayerBouncingObject : MonoBehaviour
     [HideInInspector]
     public int bounceCount = 0;
 
+    [SerializeField]
+    private GameObject destructionEffect;
 
     // Components
     [HideInInspector]
@@ -173,5 +175,6 @@ public class PlayerBouncingObject : MonoBehaviour
         isInputEnabled = false;
         meshRenderer.enabled = false;
         collider.enabled = false;
+        Instantiate(destructionEffect, transform.position, Quaternion.identity);
     }
 }
