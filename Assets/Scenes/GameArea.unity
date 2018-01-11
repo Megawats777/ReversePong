@@ -915,6 +915,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ee772b13da767a4ea9f1c8e29632151, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &579447405 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114115820261893640, guid: 4ee772b13da767a4ea9f1c8e29632151,
+    type: 2}
+  m_PrefabInternal: {fileID: 579447404}
+  m_Script: {fileID: 11500000, guid: 79accfab6abd902469a2dea13810b71d, type: 3}
 --- !u!1 &643632500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,11 +1393,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4598500291588206, guid: 4ee772b13da767a4ea9f1c8e29632151,
     type: 2}
   m_PrefabInternal: {fileID: 869197058}
---- !u!82 &869197060 stripped
-AudioSource:
-  m_PrefabParentObject: {fileID: 82972323407214134, guid: 4ee772b13da767a4ea9f1c8e29632151,
+--- !u!114 &869197060 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114115820261893640, guid: 4ee772b13da767a4ea9f1c8e29632151,
     type: 2}
   m_PrefabInternal: {fileID: 869197058}
+  m_Script: {fileID: 11500000, guid: 79accfab6abd902469a2dea13810b71d, type: 3}
 --- !u!1 &935841626
 GameObject:
   m_ObjectHideFlags: 0
@@ -2346,11 +2353,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1818175570}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!82 &1829847514 stripped
-AudioSource:
-  m_PrefabParentObject: {fileID: 82972323407214134, guid: 4ee772b13da767a4ea9f1c8e29632151,
-    type: 2}
-  m_PrefabInternal: {fileID: 579447404}
 --- !u!4 &1829847515 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4598500291588206, guid: 4ee772b13da767a4ea9f1c8e29632151,
@@ -2479,7 +2481,7 @@ Prefab:
         type: 2}
       propertyPath: collisionAudioSource
       value: 
-      objectReference: {fileID: 1829847514}
+      objectReference: {fileID: 579447405}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 28bbbe57e14e55d4a945dd942b704abc, type: 2}
   m_IsPrefabParent: 0
