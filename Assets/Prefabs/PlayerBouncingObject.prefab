@@ -136,6 +136,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 6549da1d53c572f4fa93a7c214922690, type: 2}
   - {fileID: 2100000, guid: 3cf1fd90fb0392f469c5ccc986e3d1f9, type: 2}
   - {fileID: 2100000, guid: d87407af93a8a0444a288131c25c03b9, type: 2}
+  colourBlendSpeed: 30
   bounceCount: 0
   rb: {fileID: 0}
   meshRenderer: {fileID: 0}

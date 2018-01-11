@@ -26,6 +26,12 @@ public class PlayerBouncingObject : MonoBehaviour
     [SerializeField]
     private Material[] colourStateMaterials; // Index 0: Red, Index 1: Green, Index 2, Blue
 
+    // Visual colour variables
+    [SerializeField]
+    private float colourBlendSpeed = 10.0f;
+    private Color targetVisualColour = Color.black;
+    private Color[] possibleVisualColourTargets = new Color[3]; // Index 0: Red, Index 1: Green, Index 2, Blue
+
 
     // Bounce Count variables
     [HideInInspector]
@@ -51,6 +57,12 @@ public class PlayerBouncingObject : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // Set the possible target colours
+        for (int i = 0; i < possibleVisualColourTargets.Length; i++)
+        {
+            possibleVisualColourTargets[i] = colourStateMaterials[i].color;
+        }
+        
         setColourState(ColourStates.Red);
     }
 
@@ -82,6 +94,9 @@ public class PlayerBouncingObject : MonoBehaviour
                 setColourState(ColourStates.Blue);
             }
         }
+
+        // Blend to the target visual colour
+        meshRenderer.material.color = Color.Lerp(meshRenderer.material.color, targetVisualColour, Time.deltaTime * colourBlendSpeed);
     }
 
     void FixedUpdate()
@@ -102,19 +117,19 @@ public class PlayerBouncingObject : MonoBehaviour
         switch (newColourState)
         {
             case ColourStates.Red:
-                meshRenderer.material = colourStateMaterials[0];
+                targetVisualColour = possibleVisualColourTargets[0];
                 break;
 
             case ColourStates.Green:
-                meshRenderer.material = colourStateMaterials[1];
+                targetVisualColour = possibleVisualColourTargets[1];
                 break;
 
             case ColourStates.Blue:
-                meshRenderer.material = colourStateMaterials[2];
+                targetVisualColour = possibleVisualColourTargets[2];
                 break;
 
             default:
-                meshRenderer.material = colourStateMaterials[0];
+                targetVisualColour = possibleVisualColourTargets[0];
                 break;
         }
 
