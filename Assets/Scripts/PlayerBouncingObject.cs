@@ -40,19 +40,23 @@ public class PlayerBouncingObject : MonoBehaviour
     [SerializeField]
     private GameObject destructionEffect;
 
+    // Explosion audio source
+    [SerializeField]
+    private PlayerExplosionSoundScript explosionAudioSource;
+
     // Components
     [HideInInspector]
     public Rigidbody rb;
     [HideInInspector]
     public Renderer meshRenderer;
     [HideInInspector]
-    public Collider collider;
+    public Collider colliderComp;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         meshRenderer = GetComponent<Renderer>();
-        collider = GetComponent<Collider>();
+        colliderComp = GetComponent<Collider>();
     }
 
 
@@ -174,7 +178,8 @@ public class PlayerBouncingObject : MonoBehaviour
         canMove = false;
         isInputEnabled = false;
         meshRenderer.enabled = false;
-        collider.enabled = false;
+        colliderComp.enabled = false;
         Instantiate(destructionEffect, transform.position, Quaternion.identity);
+        explosionAudioSource.playSound();
     }
 }
