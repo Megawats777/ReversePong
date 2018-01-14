@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameArea.unity
     guid: 4ac1130f6472fa24e91030935a65c25e
+  - enabled: 1
+    path: Assets/Scenes/Scene_GameArea_Sanctuary.unity
+    guid: d945614be6478a14487f35d4e5214262

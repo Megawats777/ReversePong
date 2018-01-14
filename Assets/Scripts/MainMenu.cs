@@ -57,7 +57,7 @@ public class MainMenu : MonoBehaviour
 
 		yield return new WaitForSeconds(startDelay);
 	
-		SceneManager.LoadSceneAsync("GameArea");
+		SceneManager.LoadSceneAsync("Scene_GameArea_Sanctuary");
 	}
 
 
