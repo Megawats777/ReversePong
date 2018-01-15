@@ -458,7 +458,7 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 3
-      scalar: -1.5707963
+      scalar: 0.7853981
       minScalar: 3.1415925
       maxCurve:
         serializedVersion: 2
@@ -544,7 +544,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 5
     enabled: 1
-    type: 2
+    type: 0
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
