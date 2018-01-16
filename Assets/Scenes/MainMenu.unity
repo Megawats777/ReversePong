@@ -55,7 +55,7 @@ LightmapSettings:
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 9
-    m_Resolution: 1
+    m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 512
     m_TextureHeight: 1024
@@ -1467,31 +1467,31 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4793881058339794, guid: d964353aee5be7149bfd6f79c9b3e0fa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.483
+      value: -7.56
       objectReference: {fileID: 0}
     - target: {fileID: 4793881058339794, guid: d964353aee5be7149bfd6f79c9b3e0fa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.714
+      value: 2.53
       objectReference: {fileID: 0}
     - target: {fileID: 4793881058339794, guid: d964353aee5be7149bfd6f79c9b3e0fa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 8.595
+      value: 8.34
       objectReference: {fileID: 0}
     - target: {fileID: 4793881058339794, guid: d964353aee5be7149bfd6f79c9b3e0fa, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.01628862
+      value: 0.04564868
       objectReference: {fileID: 0}
     - target: {fileID: 4793881058339794, guid: d964353aee5be7149bfd6f79c9b3e0fa, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.95035696
+      value: 0.94112015
       objectReference: {fileID: 0}
     - target: {fileID: 4793881058339794, guid: d964353aee5be7149bfd6f79c9b3e0fa, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.050488196
+      value: -0.14149265
       objectReference: {fileID: 0}
     - target: {fileID: 4793881058339794, guid: d964353aee5be7149bfd6f79c9b3e0fa, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.3066063
+      value: 0.30362627
       objectReference: {fileID: 0}
     - target: {fileID: 4793881058339794, guid: d964353aee5be7149bfd6f79c9b3e0fa, type: 2}
       propertyPath: m_RootOrder
