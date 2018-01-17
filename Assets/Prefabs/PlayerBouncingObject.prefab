@@ -140,6 +140,7 @@ MonoBehaviour:
   bounceCount: 0
   destructionEffect: {fileID: 1735244452113034, guid: 8af55b09c07fe48499db7338dd20dd71,
     type: 2}
+  explosionAudioSource: {fileID: 0}
   rb: {fileID: 0}
   meshRenderer: {fileID: 0}
-  collider: {fileID: 0}
+  colliderComp: {fileID: 0}
