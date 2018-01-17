@@ -40,6 +40,9 @@ public class Paddle : MonoBehaviour
     [SerializeField]
     private PaddleCollisionSoundScript collisionAudioSource;
 
+    float colourBlendSpeed = 10.0f;
+
+
     // External references
     PlayerBouncingObject player;
     [HeaderAttribute("External References")]
@@ -73,7 +76,6 @@ public class Paddle : MonoBehaviour
     void Update()
     {
         // Always blend to the target colour
-        float colourBlendSpeed = 10.0f;
         rendererComp.material.color = Color.Lerp(rendererComp.material.color, targetVisualColour, Time.deltaTime * colourBlendSpeed);
     }
 
