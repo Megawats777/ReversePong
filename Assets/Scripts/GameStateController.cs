@@ -39,6 +39,8 @@ public class GameStateController : MonoBehaviour
 
         ScoreTargetController.generateScoreTarget();
         player.enable();
+
+        hudLayerController.getGameplayHUDLayer().updateHUDElements();
     }
 
     // End the game

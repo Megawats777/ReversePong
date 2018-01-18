@@ -57,6 +57,9 @@ public class PlayerBouncingObject : MonoBehaviour
     private Renderer meshRenderer;
     private Collider colliderComp;
 
+    // External references
+    private HUDLayerController hudLayerController;
+
     /*--Getters and Setters--*/
 
     public int getBounceCount()
@@ -86,6 +89,7 @@ public class PlayerBouncingObject : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         meshRenderer = GetComponent<Renderer>();
         colliderComp = GetComponent<Collider>();
+        hudLayerController = FindObjectOfType<HUDLayerController>();
     }
 
 
@@ -183,6 +187,7 @@ public class PlayerBouncingObject : MonoBehaviour
     public void increaseBounceCount()
     {
         setBounceCount(getBounceCount() + 1);
+        hudLayerController.getGameplayHUDLayer().updateHUDElements();        
 
         // If the bounce count is equal to the target
         if (bounceCount == ScoreTargetController.scoreTarget)

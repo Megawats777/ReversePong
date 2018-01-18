@@ -17,6 +17,19 @@ public class HUDLayerController : MonoBehaviour
 	[HeaderAttribute("Ui Elements"), SerializeField]
 	private Text statusText;
 
+	/*--Getters and Setters--*/
+
+	public GameplayHUDLayer getGameplayHUDLayer()
+	{
+		return gameplayHUDLayer;
+	}
+
+	public GameOverHUDLayer getGameOverHUDLayer()
+	{
+		return gameOverHUDLayer;
+	}
+
+
     // Use this for initialization
     void Start()
     {

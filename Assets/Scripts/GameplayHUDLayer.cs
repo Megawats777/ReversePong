@@ -32,7 +32,7 @@ public class GameplayHUDLayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateHUDElements();
+        // updateHUDElements();
     }
 
     // Show this HUD layer
@@ -50,7 +50,7 @@ public class GameplayHUDLayer : MonoBehaviour
     }
 
     // Update HUD elements
-    private void updateHUDElements()
+    public void updateHUDElements()
     {
         bounceCountText.text = player.getBounceCount().ToString();
         targetText.text = ScoreTargetController.scoreTarget.ToString();
