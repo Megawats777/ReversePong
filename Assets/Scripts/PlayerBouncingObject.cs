@@ -12,19 +12,27 @@ public class PlayerBouncingObject : MonoBehaviour
 
     // Movement variables
     [HeaderAttribute("Movement Variables")]
-    public float direction = 1;
-    public float speed = 5.0f;
-    public float speedIncreaseFactor = 0.5f;
-    public float speedCap = 100.0f;
+    
+    [SerializeField]
+    private float direction = 1;
+    [SerializeField]
+    private float speed = 5.0f;
+    [SerializeField]
+    private float speedIncreaseFactor = 0.5f;
+    [SerializeField]
+    private float speedCap = 100.0f;
 
     [HideInInspector]
-    public bool canMove = false;
+    private bool canMove = false;
 
     // Colour state variables
     [HeaderAttribute("Colour State Variables"), SpaceAttribute(2.0f)]
-    public ColourStates currentColourState = ColourStates.Red;
+    
+    [SerializeField]
+    private ColourStates currentColourState = ColourStates.Red;
     [SerializeField]
     private Material[] colourStateMaterials; // Index 0: Red, Index 1: Green, Index 2, Blue
+
 
     // Visual colour variables
     [SerializeField]
@@ -35,7 +43,7 @@ public class PlayerBouncingObject : MonoBehaviour
 
     // Bounce Count variables
     [HideInInspector]
-    public int bounceCount = 0;
+    private int bounceCount = 0;
 
     [SerializeField]
     private GameObject destructionEffect;
@@ -45,12 +53,33 @@ public class PlayerBouncingObject : MonoBehaviour
     private PlayerExplosionSoundScript explosionAudioSource;
 
     // Components
-    [HideInInspector]
-    public Rigidbody rb;
-    [HideInInspector]
-    public Renderer meshRenderer;
-    [HideInInspector]
-    public Collider colliderComp;
+    private Rigidbody rb;
+    private Renderer meshRenderer;
+    private Collider colliderComp;
+
+    /*--Getters and Setters--*/
+
+    public int getBounceCount()
+    {
+        return bounceCount;
+    }
+
+    public void setBounceCount(int bounceCount)
+    {
+        this.bounceCount = bounceCount;
+    }
+
+
+    public ColourStates getCurrentColourState()
+    {
+        return currentColourState;
+    }
+
+    public void setCurrentColourState(ColourStates currentColourState)
+    {
+        this.currentColourState = currentColourState;
+    }
+
 
     void Awake()
     {
@@ -153,7 +182,7 @@ public class PlayerBouncingObject : MonoBehaviour
     // Increase the bounce count
     public void increaseBounceCount()
     {
-        bounceCount += 1;
+        setBounceCount(getBounceCount() + 1);
 
         // If the bounce count is equal to the target
         if (bounceCount == ScoreTargetController.scoreTarget)

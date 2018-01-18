@@ -46,7 +46,9 @@ public class Paddle : MonoBehaviour
     // External references
     PlayerBouncingObject player;
     [HeaderAttribute("External References")]
-    public Paddle opositePaddle;
+    
+    [SerializeField]
+    private Paddle opositePaddle;
     private HUDLayerController hudLayerController;
 
     void Awake()
@@ -139,7 +141,7 @@ public class Paddle : MonoBehaviour
                     break;
             }
 
-        } while (chosenColourState == player.currentColourState);
+        } while (chosenColourState == player.getCurrentColourState());
 
         // Set the chosen colour state as the current one
         // Apply colour state settings
@@ -204,7 +206,7 @@ public class Paddle : MonoBehaviour
         // and the player's colour state is the same as this one
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (currentColourState == player.currentColourState)
+            if (currentColourState == player.getCurrentColourState())
             {
                 player.reverseMovement();
 
