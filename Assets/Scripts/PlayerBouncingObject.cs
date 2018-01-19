@@ -12,7 +12,7 @@ public class PlayerBouncingObject : MonoBehaviour
 
     // Movement variables
     [HeaderAttribute("Movement Variables")]
-    
+
     [SerializeField]
     private float direction = 1;
     [SerializeField]
@@ -27,11 +27,12 @@ public class PlayerBouncingObject : MonoBehaviour
 
     // Colour state variables
     [HeaderAttribute("Colour State Variables"), SpaceAttribute(2.0f)]
-    
+
     [SerializeField]
     private ColourStates currentColourState = ColourStates.Red;
     [SerializeField]
     private Material[] colourStateMaterials; // Index 0: Red, Index 1: Green, Index 2, Blue
+    private int colourSwitchCount = 0;
 
 
     // Visual colour variables
@@ -101,7 +102,7 @@ public class PlayerBouncingObject : MonoBehaviour
         {
             possibleVisualColourTargets[i] = colourStateMaterials[i].color;
         }
-        
+
         setColourState(ColourStates.Red);
     }
 
@@ -111,26 +112,29 @@ public class PlayerBouncingObject : MonoBehaviour
         if (isInputEnabled == true)
         {
             // If the A key is pressed
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.A) && (currentColourState != ColourStates.Red))
             {
                 // Set the colour state to red
                 setColourState(ColourStates.Red);
+                colourSwitchCount++;
             }
 
 
             // If the S key is pressed
-            else if (Input.GetKeyDown(KeyCode.S))
+            else if (Input.GetKeyDown(KeyCode.S) && (currentColourState != ColourStates.Green))
             {
                 // Set the colour state to green
                 setColourState(ColourStates.Green);
+                colourSwitchCount++;
             }
 
 
             // If the D key is pressed
-            else if (Input.GetKeyDown(KeyCode.D))
+            else if (Input.GetKeyDown(KeyCode.D) && (currentColourState != ColourStates.Blue))
             {
                 // Set the colour state to blue
                 setColourState(ColourStates.Blue);
+                colourSwitchCount++;
             }
         }
 
@@ -186,11 +190,25 @@ public class PlayerBouncingObject : MonoBehaviour
     // Increase the bounce count
     public void increaseBounceCount()
     {
-        setBounceCount(getBounceCount() + 1);
-        hudLayerController.getGameplayHUDLayer().updateHUDElements();        
+        // If the colour switch count is less than 2
+        if (colourSwitchCount < 2)
+        {
+            // Add 2 to the player's score
+            setBounceCount(getBounceCount() + 2);
+        }
+
+        // Otherwise
+        else
+        {
+            // Add 1 to the player's score
+            setBounceCount(getBounceCount() + 1);
+        }
+
+        colourSwitchCount = 0;
+        hudLayerController.getGameplayHUDLayer().updateHUDElements();
 
         // If the bounce count is equal to the target
-        if (bounceCount == ScoreTargetController.scoreTarget)
+        if (bounceCount >= ScoreTargetController.scoreTarget)
         {
             // End the game
             StartCoroutine(GameStateController.endGame());
