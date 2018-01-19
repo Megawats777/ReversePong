@@ -9,6 +9,8 @@ public class PlayerBouncingObject : MonoBehaviour
     [HideInInspector]
     public bool isInputEnabled = false;
 
+    [SerializeField]
+    private AlertText switchBonusTextToSpawn;
 
     // Movement variables
     [HeaderAttribute("Movement Variables")]
