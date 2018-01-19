@@ -14,8 +14,20 @@ public class GameplayHUDLayer : MonoBehaviour
     [SerializeField]
     private Animator animComp;
 
+    // Alert text spawn point
+    [SerializeField]
+    private Transform alertTextSpawnPoint;
+
     // External references
     PlayerBouncingObject player;
+
+
+    /*--Getters and Setters--*/
+
+    public Vector3 getAlertTextSpawnPoint()
+    {
+        return alertTextSpawnPoint.position;
+    }
 
     void Awake()
     {
@@ -32,7 +44,7 @@ public class GameplayHUDLayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // updateHUDElements();
+        
     }
 
     // Show this HUD layer

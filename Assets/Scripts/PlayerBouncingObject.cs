@@ -197,6 +197,13 @@ public class PlayerBouncingObject : MonoBehaviour
         {
             // Add 2 to the player's score
             setBounceCount(getBounceCount() + 2);
+
+            // Spawn the alert text
+            AlertText spawnedText = Instantiate(switchBonusTextToSpawn, hudLayerController.getGameplayHUDLayer().getAlertTextSpawnPoint(),
+            Quaternion.identity);
+
+            spawnedText.setTextContent("Switch Bonus!");
+            spawnedText.gameObject.transform.SetParent(hudLayerController.getGameplayHUDLayer().transform);
         }
 
         // Otherwise
