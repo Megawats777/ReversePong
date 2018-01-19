@@ -54,7 +54,7 @@ public class GameOverHUDLayer : MonoBehaviour
 
 		// Set the content of the title based on whether the player
 		// reached the score target
-		if (player.getBounceCount() == ScoreTargetController.scoreTarget)
+		if (player.getBounceCount() >= ScoreTargetController.scoreTarget)
 		{
 			titleText.text = "You Win";
 		}
