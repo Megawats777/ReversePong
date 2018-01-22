@@ -19,7 +19,17 @@ public class AlertText : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        // Increase the speed of other spawned alert text objects
+        foreach (AlertText currentAlertText in FindObjectsOfType<AlertText>())
+        {
+            if (currentAlertText)
+            {
+                if (currentAlertText != this)
+                {
+                    currentAlertText.movementSpeed += 10.0f;
+                }
+            }
+        }
     }
 
     // Update is called once per frame
