@@ -204,6 +204,8 @@ public class PlayerBouncingObject : MonoBehaviour
 
             spawnedText.setTextContent("Switch Bonus!");
             spawnedText.gameObject.transform.SetParent(hudLayerController.getGameplayHUDLayer().transform);
+            spawnedText.gameObject.transform.localScale = Vector3.one;
+        
         }
 
         // Otherwise
