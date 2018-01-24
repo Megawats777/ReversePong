@@ -9,7 +9,7 @@ public class GameplayHUDLayer : MonoBehaviour
     [HeaderAttribute("HUD Elements")]
     public Text bounceCountText;
     public Text targetText;
-    
+
     // Animation elements
     [SerializeField]
     private Animator animComp;
@@ -17,6 +17,9 @@ public class GameplayHUDLayer : MonoBehaviour
     // Alert text spawn point
     [SerializeField]
     private Transform alertTextSpawnPoint;
+
+    [SerializeField]
+    private AlertText alertTextPrefab;
 
     // External references
     PlayerBouncingObject player;
@@ -38,13 +41,13 @@ public class GameplayHUDLayer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // Show this HUD layer
@@ -67,4 +70,16 @@ public class GameplayHUDLayer : MonoBehaviour
         bounceCountText.text = player.getBounceCount().ToString();
         targetText.text = ScoreTargetController.scoreTarget.ToString();
     }
+
+    // Print alert text
+    public void printAlertText(string message)
+    {
+        AlertText spawnedText = Instantiate(alertTextPrefab, getAlertTextSpawnPoint(),
+            Quaternion.identity);
+
+        spawnedText.setTextContent(message);
+        spawnedText.gameObject.transform.SetParent(this.transform);
+        spawnedText.gameObject.transform.localScale = Vector3.one;
+    }
+
 }

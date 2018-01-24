@@ -9,8 +9,6 @@ public class PlayerBouncingObject : MonoBehaviour
     [HideInInspector]
     public bool isInputEnabled = false;
 
-    [SerializeField]
-    private AlertText switchBonusTextToSpawn;
 
     // Movement variables
     [HeaderAttribute("Movement Variables")]
@@ -199,13 +197,7 @@ public class PlayerBouncingObject : MonoBehaviour
             setBounceCount(getBounceCount() + 2);
 
             // Spawn the alert text
-            AlertText spawnedText = Instantiate(switchBonusTextToSpawn, hudLayerController.getGameplayHUDLayer().getAlertTextSpawnPoint(),
-            Quaternion.identity);
-
-            spawnedText.setTextContent("Switch Bonus!");
-            spawnedText.gameObject.transform.SetParent(hudLayerController.getGameplayHUDLayer().transform);
-            spawnedText.gameObject.transform.localScale = Vector3.one;
-        
+            hudLayerController.getGameplayHUDLayer().printAlertText("Switch Bonus");
         }
 
         // Otherwise

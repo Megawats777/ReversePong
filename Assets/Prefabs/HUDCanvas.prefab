@@ -897,6 +897,8 @@ MonoBehaviour:
   targetText: {fileID: 114654896947289772}
   animComp: {fileID: 95042240891153180}
   alertTextSpawnPoint: {fileID: 224243655732212800}
+  alertTextPrefab: {fileID: 114148102692838764, guid: 5f0b9ce6140f6f14e9d1ece608a867d2,
+    type: 2}
 --- !u!114 &114463791255544962
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1806,7 +1808,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224808166849702658}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -1825,7 +1827,7 @@ RectTransform:
   m_Children:
   - {fileID: 224067567045618640}
   m_Father: {fileID: 224808166849702658}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1932,11 +1934,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75078124, y: 0.75078124, z: 0.75078124}
   m_Children:
-  - {fileID: 224815088681183784}
   - {fileID: 224404412319369394}
+  - {fileID: 224815088681183784}
   - {fileID: 224000493369830268}
-  - {fileID: 224815079878298692}
   - {fileID: 224293022298235588}
+  - {fileID: 224815079878298692}
   - {fileID: 4829962083420824}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1958,7 +1960,7 @@ RectTransform:
   m_Children:
   - {fileID: 224206024730426976}
   m_Father: {fileID: 224808166849702658}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1978,7 +1980,7 @@ RectTransform:
   - {fileID: 224998003493139010}
   - {fileID: 224243655732212800}
   m_Father: {fileID: 224808166849702658}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
