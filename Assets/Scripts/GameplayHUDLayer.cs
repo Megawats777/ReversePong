@@ -14,9 +14,10 @@ public class GameplayHUDLayer : MonoBehaviour
     [SerializeField]
     private Animator animComp;
 
-    // Alert text spawn point
+    // Alert text spawn points
+    // Index 0: Left side, Index 1: Right Side
     [SerializeField]
-    private Transform alertTextSpawnPoint;
+    private Transform[] alertTextSpawnPoints;
 
     [SerializeField]
     private AlertText alertTextPrefab;
@@ -24,13 +25,6 @@ public class GameplayHUDLayer : MonoBehaviour
     // External references
     PlayerBouncingObject player;
 
-
-    /*--Getters and Setters--*/
-
-    public Vector3 getAlertTextSpawnPoint()
-    {
-        return alertTextSpawnPoint.position;
-    }
 
     void Awake()
     {
@@ -74,7 +68,24 @@ public class GameplayHUDLayer : MonoBehaviour
     // Print alert text
     public void printAlertText(string message)
     {
-        AlertText spawnedText = Instantiate(alertTextPrefab, getAlertTextSpawnPoint(),
+        Vector3 spawnLocation = Vector3.zero;
+
+        // If the player's location is greater than 0 on the z-axis
+        // Set the spawn location to be the left side
+        if (player.transform.position.z > 0)
+        {
+            spawnLocation = alertTextSpawnPoints[0].position;
+        }
+
+        // Otherwise set the spawn location to be the right side
+        else
+        {
+            spawnLocation = alertTextSpawnPoints[1].position;
+        }
+
+        
+
+        AlertText spawnedText = Instantiate(alertTextPrefab, spawnLocation,
             Quaternion.identity);
 
         spawnedText.setTextContent(message);
