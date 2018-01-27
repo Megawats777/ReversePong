@@ -7,8 +7,7 @@ public class Paddle : MonoBehaviour
 
     [SerializeField]
     private Material disabledMaterial;
-    [SerializeField]
-    private bool isFirstPaddle;
+    private bool isFirstPaddle = false;
 
     // State materials
     // Index 0: Red
@@ -46,10 +45,24 @@ public class Paddle : MonoBehaviour
     // External references
     PlayerBouncingObject player;
     [HeaderAttribute("External References")]
-    
+
     [SerializeField]
     private Paddle opositePaddle;
     private HUDLayerController hudLayerController;
+
+
+    /*--Getters and Setters--*/
+
+    public bool getIsFirstPaddle()
+    {
+        return isFirstPaddle;
+    }
+
+    public void setIsFirstPaddle(bool isFirstPaddle)
+    {
+        this.isFirstPaddle = isFirstPaddle;
+    }
+
 
     void Awake()
     {
@@ -72,6 +85,7 @@ public class Paddle : MonoBehaviour
         {
             targetVisualColour = disabledPaddleColour;
         }
+        
     }
 
     // Update is called once per frame
@@ -80,6 +94,7 @@ public class Paddle : MonoBehaviour
         // Always blend to the target colour
         rendererComp.material.color = Color.Lerp(rendererComp.material.color, targetVisualColour, Time.deltaTime * colourBlendSpeed);
     }
+
 
     // Set random colour state
     private void setRandomColourState()

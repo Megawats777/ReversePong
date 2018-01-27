@@ -14,7 +14,7 @@ public class PlayerBouncingObject : MonoBehaviour
     [HeaderAttribute("Movement Variables")]
 
     [SerializeField]
-    private float direction = 1;
+    private float direction = 0.0f;
     [SerializeField]
     private float speed = 5.0f;
     [SerializeField]
@@ -83,6 +83,19 @@ public class PlayerBouncingObject : MonoBehaviour
     {
         this.currentColourState = currentColourState;
     }
+
+
+    public float getMovementDirection()
+    {
+        return direction;
+    }
+
+    public void setMovementDirection(int direction)
+    {
+        this.direction = direction;
+    }
+
+
 
 
     void Awake()
