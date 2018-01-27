@@ -103,7 +103,29 @@ public class PlayerBouncingObject : MonoBehaviour
             possibleVisualColourTargets[i] = colourStateMaterials[i].color;
         }
 
-        setColourState(ColourStates.Red);
+        // Set the starting colour state of the player
+        int selectionNum = Random.Range(0, 3);
+
+        if (selectionNum == 0)
+        {
+            setColourState(ColourStates.Red);
+        }
+
+        else if (selectionNum == 1)
+        {
+            setColourState(ColourStates.Green);
+        }
+
+        else if (selectionNum == 2)
+        {
+            setColourState(ColourStates.Blue);
+        }
+
+        else
+        {
+            setColourState(ColourStates.Blue);
+        }
+        
     }
 
     // Update is called once per frame
