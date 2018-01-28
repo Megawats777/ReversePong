@@ -91,6 +91,8 @@ public class GameplayHUDLayer : MonoBehaviour
         spawnedText.setTextContent(message);
         spawnedText.gameObject.transform.SetParent(this.transform);
         spawnedText.gameObject.transform.localScale = Vector3.one;
+
+        Destroy(spawnedText.gameObject, 20.0f);
     }
 
 }
