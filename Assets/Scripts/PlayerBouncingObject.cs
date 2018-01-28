@@ -14,7 +14,7 @@ public class PlayerBouncingObject : MonoBehaviour
     [HeaderAttribute("Movement Variables")]
 
     [SerializeField]
-    private float direction = 0.0f;
+    private float direction = 1.0f;
     [SerializeField]
     private float speed = 5.0f;
     [SerializeField]

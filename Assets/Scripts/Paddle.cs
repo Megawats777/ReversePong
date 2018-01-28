@@ -7,6 +7,7 @@ public class Paddle : MonoBehaviour
 
     [SerializeField]
     private Material disabledMaterial;
+    [SerializeField]
     private bool isFirstPaddle = false;
 
     // State materials
