@@ -6,12 +6,23 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Camera
+    100004: Lamp
+    100006: SM_SlantedCube
     400000: //RootNode
+    400002: Camera
+    400004: Lamp
+    400006: SM_SlantedCube
+    2000000: Camera
     2300000: //RootNode
+    2300002: SM_SlantedCube
     3300000: //RootNode
+    3300002: SM_SlantedCube
     4300000: Cube
     4300002: SM_SlantedCube
     6400000: //RootNode
+    6400002: SM_SlantedCube
+    10800000: Lamp
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -66,9 +77,9 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
-    normalImportMode: 0
-    tangentImportMode: 0
+    normalSmoothAngle: 85
+    normalImportMode: 1
+    tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0
