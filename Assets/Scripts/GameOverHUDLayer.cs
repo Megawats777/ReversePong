@@ -3,18 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using System;
 
 public class GameOverHUDLayer : MonoBehaviour
 {
 	// HUD element variables
 	[HeaderAttribute("HUD Elements")]
-	public Text titleText;
-	public Text scoreGoalText;
-	public Text playerBounceResultText;
-	public Button restartButton;
-	public Button quitButton;
+    [SerializeField]
+    private Text titleText;
+    [SerializeField]
+    private Text scoreGoalText;
+    [SerializeField]
+    private Text playerBounceResultText;
+    [SerializeField]
+    private Button restartButton;
+    [SerializeField]
+    private Button quitButton;
 	[SerializeField]
 	private Text statusText;
+    [SerializeField]
+    private Text tooltipText;
 
 	// Animation elements
 	public Animator animComp;
@@ -32,7 +41,7 @@ public class GameOverHUDLayer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -44,6 +53,8 @@ public class GameOverHUDLayer : MonoBehaviour
 	// When this HUD layer is shown
 	public void show()
 	{
+        tooltipText.text = string.Empty;
+
 		restartButton.onClick.AddListener(delegate{
 			StartCoroutine(reloadLevel());	
 		});
@@ -107,4 +118,10 @@ public class GameOverHUDLayer : MonoBehaviour
 	
 		SceneManager.LoadSceneAsync("MainMenu");
 	}
+
+    // Set the tooltip text
+    public void setTooltipText(string content)
+    {
+        tooltipText.text = content;
+    }
 }
