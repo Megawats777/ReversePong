@@ -8232,6 +8232,11 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -1442.6616
       objectReference: {fileID: 0}
+    - target: {fileID: 224943998734001744, guid: 2ff8ae6ce0c688446ab5296ebda96a10,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1312.6616
+      objectReference: {fileID: 0}
     - target: {fileID: 224496984839200218, guid: 2ff8ae6ce0c688446ab5296ebda96a10,
         type: 2}
       propertyPath: m_LocalPosition.y
