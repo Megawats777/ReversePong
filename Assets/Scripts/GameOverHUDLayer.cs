@@ -17,7 +17,7 @@ public class GameOverHUDLayer : MonoBehaviour
     [SerializeField]
     private Text playerBounceResultText;
     [SerializeField]
-    private Button restartButton;
+    private Button continueButton;
     [SerializeField]
     private Button quitButton;
 	[SerializeField]
@@ -55,7 +55,7 @@ public class GameOverHUDLayer : MonoBehaviour
 	{
         tooltipText.text = string.Empty;
 
-		restartButton.onClick.AddListener(delegate{
+		continueButton.onClick.AddListener(delegate{
 			StartCoroutine(reloadLevel());	
 		});
 
@@ -85,7 +85,7 @@ public class GameOverHUDLayer : MonoBehaviour
 	// Hide this HUD layer
 	public void hide()
 	{
-		restartButton.interactable = false;
+		continueButton.interactable = false;
 		quitButton.interactable = false;
 		animComp.SetBool("isShowing", false);
 		animComp.SetBool("isHiding", true);
@@ -95,7 +95,7 @@ public class GameOverHUDLayer : MonoBehaviour
 	private IEnumerator reloadLevel()
 	{
 		statusText.gameObject.SetActive(true);
-		statusText.text = "Restarting...";
+		statusText.text = "Loading...";
 		
 		hide();
 		fadeImageAnimComp.SetBool("isHiding", false);

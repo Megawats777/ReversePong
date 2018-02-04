@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 114285080584118610}
   - component: {fileID: 114939051775647196}
   m_Layer: 5
-  m_Name: RestartButton
+  m_Name: ContinueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -694,7 +694,7 @@ MonoBehaviour:
   titleText: {fileID: 114176806221712900}
   scoreGoalText: {fileID: 114786583020203242}
   playerBounceResultText: {fileID: 114551295421485806}
-  restartButton: {fileID: 114817191487695108}
+  continueButton: {fileID: 114817191487695108}
   quitButton: {fileID: 114980764393968470}
   statusText: {fileID: 114789590975806492}
   tooltipText: {fileID: 114652186306711042}
@@ -921,7 +921,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Restart
+  m_Text: Continue
 --- !u!114 &114238398457066776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1571,7 +1571,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: Go to the next stage.
+            m_StringArgument: Continue to the next stage.
             m_BoolArgument: 0
           m_CallState: 1
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
