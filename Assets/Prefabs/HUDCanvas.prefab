@@ -1022,6 +1022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceCountText: {fileID: 114778072161391160}
   targetText: {fileID: 114654896947289772}
+  stageText: {fileID: 114569631602225144}
   animComp: {fileID: 95042240891153180}
   alertTextSpawnPoints:
   - {fileID: 224161447974462794}

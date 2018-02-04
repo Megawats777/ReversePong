@@ -7,8 +7,12 @@ public class GameplayHUDLayer : MonoBehaviour
 {
     // HUD Elements
     [HeaderAttribute("HUD Elements")]
-    public Text bounceCountText;
-    public Text targetText;
+    [SerializeField]
+    private Text bounceCountText;
+    [SerializeField]
+    private Text targetText;
+    [SerializeField]
+    private Text stageText;
 
     // Animation elements
     [SerializeField]
@@ -47,6 +51,11 @@ public class GameplayHUDLayer : MonoBehaviour
     // Show this HUD layer
     public void show()
     {
+        string stageTextAddition = string.Empty;
+        stageTextAddition = StageSystemManager.isOnFinalStage() == true ? " (final)" : string.Empty;
+
+        stageText.text = "Stage " + StageSystemManager.getCurrentStage().ToString() + stageTextAddition;
+
         animComp.SetBool("isShowing", true);
         animComp.SetBool("isHiding", false);
     }
