@@ -8,8 +8,8 @@ using System;
 
 public class GameOverHUDLayer : MonoBehaviour
 {
-	// HUD element variables
-	[HeaderAttribute("HUD Elements")]
+    // HUD element variables
+    [HeaderAttribute("HUD Elements")]
     [SerializeField]
     private Text titleText;
     [SerializeField]
@@ -20,28 +20,28 @@ public class GameOverHUDLayer : MonoBehaviour
     private Button continueButton;
     [SerializeField]
     private Button quitButton;
-	[SerializeField]
-	private Text statusText;
+    [SerializeField]
+    private Text statusText;
     [SerializeField]
     private Text tooltipText;
 
-	// Animation elements
-	public Animator animComp;
-	public Animator fadeImageAnimComp;
+    // Animation elements
+    public Animator animComp;
+    public Animator fadeImageAnimComp;
 
-	// External references
-	private PlayerBouncingObject player;
+    // External references
+    private PlayerBouncingObject player;
 
 
-	void Awake()
-	{
-		player = FindObjectOfType<PlayerBouncingObject>();
-	}
+    void Awake()
+    {
+        player = FindObjectOfType<PlayerBouncingObject>();
+    }
 
     // Use this for initialization
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -50,74 +50,83 @@ public class GameOverHUDLayer : MonoBehaviour
 
     }
 
-	// When this HUD layer is shown
-	public void show()
-	{
+    // When this HUD layer is shown
+    public void show()
+    {
         tooltipText.text = string.Empty;
 
-		continueButton.onClick.AddListener(delegate{
-			StartCoroutine(reloadLevel());	
-		});
+        continueButton.onClick.AddListener(delegate
+        {
+            // If the player is not on the last stage
+            // Increase the stage count
+            if (StageSystemManager.isOnFinalStage() == false)
+            {
+                StageSystemManager.setCurrentStage(StageSystemManager.getCurrentStage() + 1);
+            }
 
-		quitButton.onClick.AddListener(delegate{
-			StartCoroutine(goToMainMenu());
-		});
+            StartCoroutine(reloadLevel());
+        });
 
-		// Set the content of the title based on whether the player
-		// reached the score target
-		if (player.getBounceCount() >= ScoreTargetController.scoreTarget)
-		{
-			titleText.text = "You Win";
-		}
+        quitButton.onClick.AddListener(delegate
+        {
+            StartCoroutine(goToMainMenu());
+        });
 
-		else
-		{
-			titleText.text = "You Lose";
-		}
+        // Set the content of the title based on whether the player
+        // reached the score target
+        if (player.getBounceCount() >= ScoreTargetController.scoreTarget)
+        {
+            titleText.text = "You Win";
+        }
 
-		scoreGoalText.text = ScoreTargetController.scoreTarget.ToString();
-		playerBounceResultText.text = player.getBounceCount().ToString();
-	
-		animComp.SetBool("isShowing", true);
-		animComp.SetBool("isHiding", false);
-	}
+        else
+        {
+            titleText.text = "You Lose";
+        }
 
-	// Hide this HUD layer
-	public void hide()
-	{
-		continueButton.interactable = false;
-		quitButton.interactable = false;
-		animComp.SetBool("isShowing", false);
-		animComp.SetBool("isHiding", true);
-	}
+        scoreGoalText.text = ScoreTargetController.scoreTarget.ToString();
+        playerBounceResultText.text = player.getBounceCount().ToString();
 
-	// Reload level
-	private IEnumerator reloadLevel()
-	{
-		statusText.gameObject.SetActive(true);
-		statusText.text = "Loading...";
-		
-		hide();
-		fadeImageAnimComp.SetBool("isHiding", false);
+        animComp.SetBool("isShowing", true);
+        animComp.SetBool("isHiding", false);
+    }
 
-		yield return new WaitForSeconds(3.0f);
+    // Hide this HUD layer
+    public void hide()
+    {
+        continueButton.interactable = false;
+        quitButton.interactable = false;
+        animComp.SetBool("isShowing", false);
+        animComp.SetBool("isHiding", true);
+    }
 
-		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-	}
+    // Reload level
+    private IEnumerator reloadLevel()
+    {
+        statusText.gameObject.SetActive(true);
+        statusText.text = "Loading...";
 
-	// Go to the main menu
-	private IEnumerator goToMainMenu()
-	{
-		statusText.gameObject.SetActive(true);
-		statusText.text = "Loading...";
+        hide();
+        fadeImageAnimComp.SetBool("isHiding", false);
 
-		hide();
-		fadeImageAnimComp.SetBool("isHiding", false);
+        yield return new WaitForSeconds(3.0f);
 
-		yield return new WaitForSeconds(3.0f);
-	
-		SceneManager.LoadSceneAsync("MainMenu");
-	}
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+    }
+
+    // Go to the main menu
+    private IEnumerator goToMainMenu()
+    {
+        statusText.gameObject.SetActive(true);
+        statusText.text = "Loading...";
+
+        hide();
+        fadeImageAnimComp.SetBool("isHiding", false);
+
+        yield return new WaitForSeconds(3.0f);
+
+        SceneManager.LoadSceneAsync("MainMenu");
+    }
 
     // Set the tooltip text
     public void setTooltipText(string content)
