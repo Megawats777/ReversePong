@@ -50,7 +50,19 @@ public class GameStateController : MonoBehaviour
         hudLayerController.hideGameplayHUDLayer();
 
         yield return new WaitForSeconds(2.0f);
-    	
-		hudLayerController.showGameOverHUDLayer();
+
+        // If the player is on the final stage
+        // Show the stage run end HUD layer
+        if (StageSystemManager.isOnFinalStage() == true)
+        {
+            hudLayerController.showStageRunEndHUDLayer();
+        }
+
+        // Otherwise
+        // Show the game over HUD layer
+        else
+        {
+            hudLayerController.showGameOverHUDLayer();
+        }
     }
 }

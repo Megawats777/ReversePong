@@ -12,6 +12,8 @@ public class HUDLayerController : MonoBehaviour
 	private GameOverHUDLayer gameOverHUDLayer;
 	[SerializeField]
 	private StartingHUDLayer startingHUDLayer;
+    [SerializeField]
+    private StageRunEndHUDLayer stageRunEndHUDLayer;
 
 	// Ui Elements
 	[HeaderAttribute("Ui Elements"), SerializeField]
@@ -29,6 +31,10 @@ public class HUDLayerController : MonoBehaviour
 		return gameOverHUDLayer;
 	}
 
+    public StageRunEndHUDLayer getStageRunEndHUDLayer()
+    {
+        return stageRunEndHUDLayer;
+    }
 
     // Use this for initialization
     void Start()
@@ -36,6 +42,7 @@ public class HUDLayerController : MonoBehaviour
 		statusText.gameObject.SetActive(false);
 		gameplayHUDLayer.gameObject.SetActive(false);
 		gameOverHUDLayer.gameObject.SetActive(false);
+        stageRunEndHUDLayer.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -83,4 +90,17 @@ public class HUDLayerController : MonoBehaviour
 	{
 		gameOverHUDLayer.gameObject.SetActive(false);
 	}
+
+
+    // Stage run end HUD layer code
+    public void showStageRunEndHUDLayer()
+    {
+        stageRunEndHUDLayer.gameObject.SetActive(true);
+        stageRunEndHUDLayer.show();
+    }
+
+    public void hideStageRunEndHUDLayer()
+    {
+        stageRunEndHUDLayer.gameObject.SetActive(false);
+    }
 }
