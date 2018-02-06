@@ -26,4 +26,42 @@ public static class StageSystemManager
     {
         return currentStage == finalStage;
     }
+    
+    // Get player grade
+    public static string getPlayerGrade(int wins)
+    {
+        // Based on the number of wins
+        // Return a certain grade
+        switch(wins)
+        {
+            case 0:
+                return "Absolute Failure";
+                break;
+
+            case 1:
+                return "D";
+                break;
+
+            case 2;
+                return "C";
+                break;
+
+            case 3:
+                return "B";
+                break;
+
+            case 4:
+                return "A";
+                break;
+
+            case 5:
+                return "S";
+                break;
+
+            default:
+                return "F";
+                break;
+        }
+
+    }
 }
