@@ -20,6 +20,11 @@ public static class StageSystemManager
         currentStage = Mathf.Clamp(newStage, 0, 99);
     }
 
+    public static int getFinalStage()
+    {
+        return finalStage;
+    }
+
 
     // Is on the final stage
     public static bool isOnFinalStage()
@@ -27,8 +32,8 @@ public static class StageSystemManager
         return currentStage == finalStage;
     }
     
-    // Get player grade
-    public static string getPlayerGrade(int wins)
+    // Get player rank
+    public static string getPlayerRank(int wins)
     {
         // Based on the number of wins
         // Return a certain grade

@@ -2174,6 +2174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fac2edc3f8849049bd47926b239ccb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winsText: {fileID: 114862315589158710}
+  rankText: {fileID: 114786583020203242}
 --- !u!114 &114939051775647196
 MonoBehaviour:
   m_ObjectHideFlags: 1

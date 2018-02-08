@@ -1,9 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StageRunEndHUDLayer : MonoBehaviour
 {
+    // Ui Elements
+    [Header("UI Elements")]
+    [SerializeField]
+    private Text winsText;
+    [SerializeField]
+    private Text rankText;
+
+
 
     // Use this for initialization
     void Start()
@@ -20,7 +29,8 @@ public class StageRunEndHUDLayer : MonoBehaviour
     // Show this layer
     public void show()
     {
-
+        winsText.text = PlayerStatsContainer.getWins().ToString() + " / " + StageSystemManager.getFinalStage().ToString();
+        rankText.text = StageSystemManager.getPlayerRank(PlayerStatsContainer.getWins());
     }
 
     // Hide this layer
