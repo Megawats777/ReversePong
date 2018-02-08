@@ -1,0 +1,5 @@
+-- Size Variation 1
+	
+	Width: 220
+	Height: 75
+	Text Font Size: 28

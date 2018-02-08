@@ -42,7 +42,7 @@ public static class StageSystemManager
                 return "D";
                 break;
 
-            case 2;
+            case 2:
                 return "C";
                 break;
 
@@ -59,7 +59,7 @@ public static class StageSystemManager
                 break;
 
             default:
-                return "F";
+                return "Absolute Failure";
                 break;
         }
 
