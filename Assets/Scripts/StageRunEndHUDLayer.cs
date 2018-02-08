@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StageRunEndHUDLayer : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class StageRunEndHUDLayer : MonoBehaviour
     private Text winsText;
     [SerializeField]
     private Text rankText;
-
-
+    [SerializeField]
+    private Button quitButton;
 
     // Use this for initialization
     void Start()
@@ -29,6 +30,12 @@ public class StageRunEndHUDLayer : MonoBehaviour
     // Show this layer
     public void show()
     {
+        // Add on click listener
+        quitButton.onClick.AddListener(delegate
+        {
+            SceneManager.LoadSceneAsync("MainMenu");
+        });
+
         winsText.text = PlayerStatsContainer.getWins().ToString() + " / " + StageSystemManager.getFinalStage().ToString();
         rankText.text = StageSystemManager.getPlayerRank(PlayerStatsContainer.getWins());
     }
