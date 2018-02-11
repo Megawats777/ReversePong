@@ -2195,6 +2195,9 @@ MonoBehaviour:
   winsText: {fileID: 114862315589158710}
   rankText: {fileID: 114786583020203242}
   quitButton: {fileID: 114054189892082004}
+  animComp: {fileID: 95001575973040350}
+  fadeImage: {fileID: 95544274915036354}
+  statusText: {fileID: 114789590975806492}
 --- !u!114 &114939051775647196
 MonoBehaviour:
   m_ObjectHideFlags: 1

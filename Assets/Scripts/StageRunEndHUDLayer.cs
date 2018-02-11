@@ -15,6 +15,23 @@ public class StageRunEndHUDLayer : MonoBehaviour
     [SerializeField]
     private Button quitButton;
 
+    // Component references
+    [Header("Component References"), SerializeField]
+    private Animator animComp;
+
+
+    // External refernces
+    [Header("External References"), SerializeField]
+    private Animator fadeImage;
+    [SerializeField]
+    private Text statusText;
+
+    // Called before start
+    private void Awake()
+    {
+        
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -30,10 +47,12 @@ public class StageRunEndHUDLayer : MonoBehaviour
     // Show this layer
     public void show()
     {
+        animComp.SetBool("isShowing", true);
+
         // Add on click listener
         quitButton.onClick.AddListener(delegate
         {
-            SceneManager.LoadSceneAsync("MainMenu");
+            StartCoroutine(transitionToMainMenu());
         });
 
         winsText.text = PlayerStatsContainer.getWins().ToString() + " / " + StageSystemManager.getFinalStage().ToString();
@@ -43,6 +62,23 @@ public class StageRunEndHUDLayer : MonoBehaviour
     // Hide this layer
     public void hide()
     {
+        animComp.SetBool("isShowing", false);
+    }
 
+
+    // Transition to main menu
+    private IEnumerator transitionToMainMenu()
+    {
+        float delay = 3.0f;
+
+        animComp.SetBool("isShowing", false);
+        fadeImage.SetBool("isHiding", false);
+
+        statusText.gameObject.SetActive(true);
+        statusText.text = "Loading...";
+
+        yield return new WaitForSeconds(delay);
+
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 }
