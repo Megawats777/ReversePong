@@ -14,6 +14,8 @@ public class StageRunEndHUDLayer : MonoBehaviour
     private Text rankText;
     [SerializeField]
     private Button quitButton;
+    [SerializeField]
+    private Text toolTipText;
 
     // Component references
     [Header("Component References"), SerializeField]
@@ -47,6 +49,7 @@ public class StageRunEndHUDLayer : MonoBehaviour
     // Show this layer
     public void show()
     {
+        toolTipText.text = string.Empty;
         animComp.SetBool("isShowing", true);
 
         // Add on click listener
