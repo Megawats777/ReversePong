@@ -5,12 +5,12 @@ using UnityEngine;
 public class ScoreTargetController : MonoBehaviour
 {
     // Score target variables
-	private static int minScoreTarget = 12;
-	private static int maxScoreTarget = 15;
-	private static int scoreTarget;
+    private static int minScoreTarget = 12;
+    private static int maxScoreTarget = 15;
+    private static int scoreTarget;
 
     private static int scoreIncreaseModifier = 9;
-
+    private static bool canGenerateScoreTarget = true;
 
 
     /*--Getters and Setters--*/
@@ -23,6 +23,17 @@ public class ScoreTargetController : MonoBehaviour
     public static void setScoreTarget(int newScoreTarget)
     {
         scoreTarget = newScoreTarget;
+    }
+
+
+    public static bool getCanGenerateScoreTarget()
+    {
+        return canGenerateScoreTarget;
+    }
+
+    public static void setCanGenerateScoreTarget(bool value)
+    {
+        canGenerateScoreTarget = value;
     }
 
     /*--Getters and Setters end--*/
@@ -39,12 +50,21 @@ public class ScoreTargetController : MonoBehaviour
 
     }
 
-	// Generate score target
-	public static void generateScoreTarget()
-	{
-		scoreTarget = Random.Range(minScoreTarget, maxScoreTarget);
+    // Generate score target
+    public static void generateScoreTarget()
+    {
+        if (canGenerateScoreTarget == true)
+        {
+            scoreTarget = Random.Range(minScoreTarget, maxScoreTarget);
 
-        // Add to the score target based on the current round
-        scoreTarget += scoreIncreaseModifier * (StageSystemManager.getCurrentStage() - 1);
+            // Add to the score target based on the current round
+            scoreTarget += scoreIncreaseModifier * (StageSystemManager.getCurrentStage() - 1);
+        }
+    }
+
+    // Reset values
+    public static void resetValues()
+    {
+        canGenerateScoreTarget = true;
     }
 }

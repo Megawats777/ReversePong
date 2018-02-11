@@ -51,6 +51,9 @@ public class MainMenu : MonoBehaviour
 		loadingText.gameObject.SetActive(true);
         background.enabled = false;
 
+        StageSystemManager.resetValues();
+        ScoreTargetController.resetValues();
+
         yield return new WaitForSeconds(1.0f);
 
         fadeImageAnimator.SetBool("isShowing", true);

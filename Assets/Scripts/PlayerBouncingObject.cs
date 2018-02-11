@@ -249,6 +249,7 @@ public class PlayerBouncingObject : MonoBehaviour
         if (bounceCount >= ScoreTargetController.getScoreTarget())
         {
             // End the game
+            ScoreTargetController.setCanGenerateScoreTarget(true);
             PlayerStatsContainer.setWins(PlayerStatsContainer.getWins() + 1);
             StartCoroutine(GameStateController.endGame());
         }

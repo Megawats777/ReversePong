@@ -237,6 +237,7 @@ public class Paddle : MonoBehaviour
 
             else
             {
+                ScoreTargetController.setCanGenerateScoreTarget(false);
                 StartCoroutine(GameStateController.endGame());
             }
 

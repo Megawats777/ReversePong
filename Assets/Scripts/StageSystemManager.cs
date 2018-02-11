@@ -69,4 +69,10 @@ public static class StageSystemManager
         }
 
     }
+
+    // Reset values
+    public static void resetValues()
+    {
+        currentStage = 1;
+    }
 }
