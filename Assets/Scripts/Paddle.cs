@@ -75,6 +75,19 @@ public class Paddle : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+                
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Always blend to the target colour
+        rendererComp.material.color = Color.Lerp(rendererComp.material.color, targetVisualColour, Time.deltaTime * colourBlendSpeed);
+    }
+
+    // Initialize properties
+    public void initializeProperties()
+    {
         redPaddleColour = stateMaterials[0].color;
         greenPaddleColour = stateMaterials[1].color;
         bluePaddleColour = stateMaterials[2].color;
@@ -86,16 +99,8 @@ public class Paddle : MonoBehaviour
         {
             targetVisualColour = disabledPaddleColour;
         }
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Always blend to the target colour
-        rendererComp.material.color = Color.Lerp(rendererComp.material.color, targetVisualColour, Time.deltaTime * colourBlendSpeed);
     }
-
 
     // Set random colour state
     private void setRandomColourState()

@@ -33,6 +33,10 @@ public class PaddleManager : MonoBehaviour
             leftPaddle.setIsFirstPaddle(true);
             rightPaddle.setIsFirstPaddle(false);
 
+            // Initialize the properties of the paddles
+            leftPaddle.initializeProperties();
+            rightPaddle.initializeProperties();
+
             player.setMovementDirection(1);
         }
 
@@ -40,6 +44,10 @@ public class PaddleManager : MonoBehaviour
         {
             rightPaddle.setIsFirstPaddle(true);
             leftPaddle.setIsFirstPaddle(false);
+
+            // Initialize the properties of the paddles
+            leftPaddle.initializeProperties();
+            rightPaddle.initializeProperties();
 
             player.setMovementDirection(-1);
         }
