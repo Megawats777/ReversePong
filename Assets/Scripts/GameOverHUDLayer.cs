@@ -74,7 +74,7 @@ public class GameOverHUDLayer : MonoBehaviour
 
         // Set the content of the title based on whether the player
         // reached the score target
-        if (player.getBounceCount() >= ScoreTargetController.scoreTarget)
+        if (player.getBounceCount() >= ScoreTargetController.getScoreTarget())
         {
             titleText.text = "You Win";
         }
@@ -84,7 +84,7 @@ public class GameOverHUDLayer : MonoBehaviour
             titleText.text = "You Lose";
         }
 
-        scoreGoalText.text = ScoreTargetController.scoreTarget.ToString();
+        scoreGoalText.text = ScoreTargetController.getScoreTarget().ToString();
         playerBounceResultText.text = player.getBounceCount().ToString();
 
         animComp.SetBool("isShowing", true);

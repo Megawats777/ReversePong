@@ -246,7 +246,7 @@ public class PlayerBouncingObject : MonoBehaviour
         hudLayerController.getGameplayHUDLayer().updateHUDElements();
 
         // If the bounce count is equal to the target
-        if (bounceCount >= ScoreTargetController.scoreTarget)
+        if (bounceCount >= ScoreTargetController.getScoreTarget())
         {
             // End the game
             PlayerStatsContainer.setWins(PlayerStatsContainer.getWins() + 1);

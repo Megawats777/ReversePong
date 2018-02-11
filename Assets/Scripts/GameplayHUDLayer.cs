@@ -71,7 +71,7 @@ public class GameplayHUDLayer : MonoBehaviour
     public void updateHUDElements()
     {
         bounceCountText.text = player.getBounceCount().ToString();
-        targetText.text = ScoreTargetController.scoreTarget.ToString();
+        targetText.text = ScoreTargetController.getScoreTarget().ToString();
     }
 
     // Print alert text
