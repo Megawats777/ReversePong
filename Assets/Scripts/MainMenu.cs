@@ -53,6 +53,7 @@ public class MainMenu : MonoBehaviour
 
         StageSystemManager.resetValues();
         ScoreTargetController.resetValues();
+        PlayerStatsContainer.resetValues();
 
         yield return new WaitForSeconds(1.0f);
 

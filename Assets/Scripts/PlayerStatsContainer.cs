@@ -20,4 +20,12 @@ public static class PlayerStatsContainer
         wins = Mathf.Clamp(newWins, 0, 99);
     }
 
+    /*--Getters and Setters end*/
+
+
+    // Reset values
+    public static void resetValues()
+    {
+        wins = 0;
+    }
 }
