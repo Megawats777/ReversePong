@@ -216,7 +216,7 @@ public class Paddle : MonoBehaviour
         }
 
         GameObject spawnedEffect = Instantiate(colourStateExplosionEffect[selectedIndex], effectSpawnPoint.transform.position, Quaternion.identity).gameObject;
-        Destroy(spawnedEffect, 10.0f);
+        Destroy(spawnedEffect, 20.2f);
     }
 
 
