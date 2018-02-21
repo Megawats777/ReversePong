@@ -271,7 +271,9 @@ public class PlayerBouncingObject : MonoBehaviour
         isInputEnabled = false;
         meshRenderer.enabled = false;
         colliderComp.enabled = false;
-        Instantiate(destructionEffect, transform.position, Quaternion.identity);
+
+        Vector3 vfxSpawnPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+        Instantiate(destructionEffect, vfxSpawnPosition, Quaternion.identity);
         explosionAudioSource.playSound();
     }
 }
