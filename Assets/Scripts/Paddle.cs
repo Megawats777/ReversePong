@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// The paddle class
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
