@@ -1,3 +1,5 @@
+// A list of standard button sizes for the UI
+
 -- Size Variation 1
 	
 	Width: 220
