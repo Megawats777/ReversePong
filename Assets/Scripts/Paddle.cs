@@ -9,7 +9,7 @@ public class Paddle : MonoBehaviour
 
     [SerializeField]
     private Material disabledMaterial;
-    [SerializeField]
+    //[SerializeField]
     private bool isFirstPaddle = false;
 
     // State materials
@@ -36,6 +36,8 @@ public class Paddle : MonoBehaviour
     private Color disabledPaddleColour;
 
     // Components
+    [Header("Components"), SerializeField]
+    private Light shineLightComp;
     Renderer rendererComp;
 
     // Audio Source
@@ -99,7 +101,7 @@ public class Paddle : MonoBehaviour
 
         if (isFirstPaddle == false)
         {
-            targetVisualColour = disabledPaddleColour;
+            disablePaddle();
         }
 
     }
@@ -171,7 +173,7 @@ public class Paddle : MonoBehaviour
         currentColourState = chosenColourState;
         applyColourStateSettings(currentColourState);
 
-
+        shineLightComp.gameObject.SetActive(true);
     }
 
     // Apply Colour state settings
@@ -237,7 +239,7 @@ public class Paddle : MonoBehaviour
                 {
                     collisionAudioSource.playSound();
                     spawnParticleEffect();
-                    targetVisualColour = disabledPaddleColour;
+                    disablePaddle();
                     opositePaddle.selectNewColourState();
                 }
             }
@@ -249,5 +251,12 @@ public class Paddle : MonoBehaviour
             }
 
         }
+    }
+
+    // Disable paddle
+    public void disablePaddle()
+    {
+        targetVisualColour = disabledPaddleColour;
+        shineLightComp.gameObject.SetActive(false);
     }
 }
