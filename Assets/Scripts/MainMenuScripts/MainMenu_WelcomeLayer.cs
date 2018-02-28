@@ -42,6 +42,13 @@ public class MainMenu_WelcomeLayer : MonoBehaviour
             mainMenu_LayerController.hide_welcomeScreen();
         });
 
+        creditsButton.onClick.AddListener(delegate
+        {
+			mainMenu_LayerController.show_creditsScreen();
+			mainMenu_LayerController.hide_welcomeScreen();
+        });
+
+
         quitButton.onClick.AddListener(delegate
         {
             Application.Quit();
