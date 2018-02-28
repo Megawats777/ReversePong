@@ -6,30 +6,47 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu_WelcomeLayer : MonoBehaviour
 {
-	// Element references
-	[Header("Element References"), SerializeField]
-	private GameObject contentRoot;
-	[SerializeField]
-	private Text loadingText;
-	[SerializeField]
-	private Button playButton;
-	[SerializeField]
-	private Button helpButton;
-	[SerializeField]
-	private Button creditsButton;
-	[SerializeField]
-	private Button quitButton;
-	[SerializeField]
-	private Animator fadeImage;
+    // Element references
+    [Header("Element References"), SerializeField]
+    private GameObject contentRoot;
+    [SerializeField]
+    private Text loadingText;
+    [SerializeField]
+    private Button playButton;
+    [SerializeField]
+    private Button helpButton;
+    [SerializeField]
+    private Button creditsButton;
+    [SerializeField]
+    private Button quitButton;
+    [SerializeField]
+    private Animator fadeImage;
 
-	// External references
-	private MainMenu_LayerController mainMenu_LayerController;
+    // External references
+    private MainMenu_LayerController mainMenu_LayerController;
 
-	// Called before start
-	void Awake()
-	{
-		mainMenu_LayerController = FindObjectOfType<MainMenu_LayerController>();
-	}
+    // Called before start
+    void Awake()
+    {
+        mainMenu_LayerController = FindObjectOfType<MainMenu_LayerController>();
+
+        // Assign functions to buttons
+        playButton.onClick.AddListener(delegate
+        {
+            StartCoroutine(startGame());
+        });
+
+        helpButton.onClick.AddListener(delegate
+        {
+            mainMenu_LayerController.show_helpScreen();
+            mainMenu_LayerController.hide_welcomeScreen();
+        });
+
+        quitButton.onClick.AddListener(delegate
+        {
+            Application.Quit();
+        });
+    }
 
     // Use this for initialization
     void Start()
@@ -44,48 +61,39 @@ public class MainMenu_WelcomeLayer : MonoBehaviour
     }
 
 
-	// Show this layer
-	public void show()
-	{
-		// Assign functions to buttons
-		playButton.onClick.AddListener(delegate{
-			StartCoroutine(startGame());
-		});
+    // Show this layer
+    public void show()
+    {
+        contentRoot.SetActive(true);
+        loadingText.gameObject.SetActive(false);
+    }
+
+    // Hide the layer
+    public void hide()
+    {
+        contentRoot.SetActive(false);
+    }
+
+    // Start the game
+    private IEnumerator startGame()
+    {
+        float delay = 2.0f;
+
+        hide();
+        PlayerStatsContainer.resetValues();
+        StageSystemManager.resetValues();
+        ScoreTargetController.resetValues();
+
+        loadingText.gameObject.SetActive(true);
 
 
-		quitButton.onClick.AddListener(delegate{
-			Application.Quit();
-		});
 
-		loadingText.gameObject.SetActive(false);
-	}
+        yield return new WaitForSeconds(delay);
 
-	// Hide the layer
-	public void hide()
-	{
-		contentRoot.SetActive(false);
-	}
+        fadeImage.SetBool("isShowing", true);
 
-	// Start the game
-	private IEnumerator startGame()
-	{
-		float delay = 1.5f;
-		
-		hide();
-		PlayerStatsContainer.resetValues();
-		StageSystemManager.resetValues();
-		ScoreTargetController.resetValues();
+        yield return new WaitForSeconds(2.5f);
 
-		loadingText.gameObject.SetActive(true);
-
-		
-
-		yield return new WaitForSeconds(delay);
-	
-		fadeImage.SetBool("isShowing", true);
-
-		yield return new WaitForSeconds(2.0f);
-
-		SceneManager.LoadSceneAsync("Scene_GameArea_Sanctuary");
-	}
+        SceneManager.LoadSceneAsync("Scene_GameArea_Sanctuary");
+    }
 }
