@@ -39,6 +39,8 @@ public class HUDLayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		Cursor.visible = false;
+
 		statusText.gameObject.SetActive(false);
 		gameplayHUDLayer.gameObject.SetActive(false);
 		gameOverHUDLayer.gameObject.SetActive(false);
@@ -48,7 +50,14 @@ public class HUDLayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+		// Debug cursor visiblity code
+		if (Application.isEditor == true)
+		{
+			if (Input.GetKeyDown(KeyCode.Space))
+			{
+				Cursor.visible = !Cursor.visible;
+			}
+		}
     }
 
 

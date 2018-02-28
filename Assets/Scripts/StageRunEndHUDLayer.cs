@@ -49,6 +49,8 @@ public class StageRunEndHUDLayer : MonoBehaviour
     // Show this layer
     public void show()
     {
+        Cursor.visible = true;
+
         toolTipText.text = string.Empty;
         animComp.SetBool("isShowing", true);
 
@@ -65,6 +67,7 @@ public class StageRunEndHUDLayer : MonoBehaviour
     // Hide this layer
     public void hide()
     {
+        Cursor.visible = false;
         animComp.SetBool("isShowing", false);
     }
 

@@ -17,6 +17,8 @@ public class MainMenu_LayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		Cursor.visible = true;
+
 		welcomeScreen.gameObject.SetActive(true);
 		helpScreen.gameObject.SetActive(false);
 		creditsScreen.gameObject.SetActive(false);

@@ -91,6 +91,7 @@ public class MainMenu_WelcomeLayer : MonoBehaviour
         StageSystemManager.resetValues();
         ScoreTargetController.resetValues();
 
+        Cursor.visible = false;
         loadingText.gameObject.SetActive(true);
 
 

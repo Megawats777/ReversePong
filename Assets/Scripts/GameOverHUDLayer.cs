@@ -53,6 +53,7 @@ public class GameOverHUDLayer : MonoBehaviour
     // When this HUD layer is shown
     public void show()
     {
+        Cursor.visible = true;
         tooltipText.text = string.Empty;
 
         continueButton.onClick.AddListener(delegate
@@ -94,6 +95,8 @@ public class GameOverHUDLayer : MonoBehaviour
     // Hide this HUD layer
     public void hide()
     {
+        Cursor.visible = false;
+
         continueButton.interactable = false;
         quitButton.interactable = false;
         animComp.SetBool("isShowing", false);
