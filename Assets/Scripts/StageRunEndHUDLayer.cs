@@ -78,7 +78,7 @@ public class StageRunEndHUDLayer : MonoBehaviour
         float delay = 3.0f;
 
         quitButton.interactable = false;
-        animComp.SetBool("isShowing", false);
+        hide();
 
         yield return new WaitForSeconds(1.1f);
 
