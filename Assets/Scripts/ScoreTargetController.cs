@@ -58,7 +58,7 @@ public class ScoreTargetController : MonoBehaviour
             scoreTarget = Random.Range(minScoreTarget, maxScoreTarget);
 
             // Add to the score target based on the current round
-            scoreTarget += scoreIncreaseModifier * (StageSystemManager.getCurrentStage() - 1);
+            scoreTarget += scoreIncreaseModifier * (PlayerStatsContainer.getWins());
         }
     }
 
