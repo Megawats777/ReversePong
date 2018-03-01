@@ -60,6 +60,7 @@ public class PostProcessingSettingsController : MonoBehaviour
 			// Adjust antialiasing
 			var antiAliasingSetting = newPostFxProfile.antialiasing.settings;
 			antiAliasingSetting.method = AntialiasingModel.Method.Fxaa;
+			antiAliasingSetting.fxaaSettings.preset = AntialiasingModel.FxaaPreset.Quality;
 			newPostFxProfile.antialiasing.settings = antiAliasingSetting;
 		
 			// Adjust depth of field
