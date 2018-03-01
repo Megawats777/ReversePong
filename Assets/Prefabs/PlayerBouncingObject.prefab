@@ -126,8 +126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInputEnabled: 0
-  switchBonusTextToSpawn: {fileID: 114148102692838764, guid: 5f0b9ce6140f6f14e9d1ece608a867d2,
-    type: 2}
   direction: 1
   speed: 32
   speedIncreaseFactor: 5
