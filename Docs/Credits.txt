@@ -4,5 +4,5 @@ Creator: James Daniel Semilla (Megawats777)
 
 
 Fonts:
-	-Saira Semi Condensed
+	-Lato
 		-Source: Google Fonts
