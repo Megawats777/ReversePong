@@ -24,15 +24,18 @@ public class MainMenu_WelcomeLayer : MonoBehaviour
 
     // External references
     private MainMenu_LayerController mainMenu_LayerController;
+    private MusicPlayer musicPlayer;
 
     // Called before start
     void Awake()
     {
         mainMenu_LayerController = FindObjectOfType<MainMenu_LayerController>();
+        musicPlayer = FindObjectOfType<MusicPlayer>();
 
         // Assign functions to buttons
         playButton.onClick.AddListener(delegate
         {
+            musicPlayer.fadeOut();
             StartCoroutine(startGame());
         });
 
