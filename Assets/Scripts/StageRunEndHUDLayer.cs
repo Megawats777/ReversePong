@@ -28,10 +28,12 @@ public class StageRunEndHUDLayer : MonoBehaviour
     [SerializeField]
     private Text statusText;
 
+    private MusicPlayer musicPlayer;
+
     // Called before start
     private void Awake()
     {
-        
+        musicPlayer = FindObjectOfType<MusicPlayer>();
     }
 
     // Use this for initialization
@@ -57,6 +59,7 @@ public class StageRunEndHUDLayer : MonoBehaviour
         // Add on click listener
         quitButton.onClick.AddListener(delegate
         {
+            musicPlayer.fadeOut();
             StartCoroutine(transitionToMainMenu());
         });
 

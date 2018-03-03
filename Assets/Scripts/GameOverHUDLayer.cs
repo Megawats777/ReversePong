@@ -31,11 +31,12 @@ public class GameOverHUDLayer : MonoBehaviour
 
     // External references
     private PlayerBouncingObject player;
-
+    private MusicPlayer musicPlayer;
 
     void Awake()
     {
         player = FindObjectOfType<PlayerBouncingObject>();
+        musicPlayer = FindObjectOfType<MusicPlayer>();
     }
 
     // Use this for initialization
@@ -64,12 +65,13 @@ public class GameOverHUDLayer : MonoBehaviour
             {
                 StageSystemManager.setCurrentStage(StageSystemManager.getCurrentStage() + 1);
             }
-
+            musicPlayer.fadeOut();
             StartCoroutine(reloadLevel());
         });
 
         quitButton.onClick.AddListener(delegate
         {
+            musicPlayer.fadeOut();
             StartCoroutine(goToMainMenu());
         });
 

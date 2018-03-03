@@ -139,4 +139,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d2bc31d0a67317e4e8c64e418335ecb2, type: 3}
   - {fileID: 8300000, guid: 3f21ad566167343439a751c9e9541c2f, type: 3}
   - {fileID: 8300000, guid: 60a29fa79dd39ce43abc64c5a66951cf, type: 3}
-  audioSourceFadeSpeed: 2
+  audioSourceFadeSpeed: 0.2

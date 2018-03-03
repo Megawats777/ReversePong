@@ -9,7 +9,7 @@ public class MusicPlayer : MonoBehaviour
     private AudioClip[] musicClips;
     private AudioClip previousMusicClip = null;
 
-	[SerializeField]
+	[SerializeField, Range(0, 1)]
 	private float audioSourceFadeSpeed;
 	private float audioSourceVolumeMultiplier = 1.0f;
 	private float targetAudioSourceVolumeMultiplier = 1.0f;
