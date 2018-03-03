@@ -6,3 +6,28 @@ Creator: James Daniel Semilla (Megawats777)
 Fonts:
 	-Lato
 		-Source: Google Fonts
+
+Music:
+	- Soaring
+		"Soaring" Kevin MacLeod (incompetech.com)
+		Licensed under Creative Commons: By Attribution 3.0 License
+		http://creativecommons.org/licenses/by/3.0/
+
+	- Winter Reflections
+		"Winter Reflections" Kevin MacLeod (incompetech.com)
+		Licensed under Creative Commons: By Attribution 3.0 License
+		http://creativecommons.org/licenses/by/3.0/
+
+	- Inspired
+		"Inspired" Kevin MacLeod (incompetech.com)
+		Licensed under Creative Commons: By Attribution 3.0 License
+		http://creativecommons.org/licenses/by/3.0/
+
+	- Divider
+		Divider by Chris Zabriskie is licensed under a Creative Commons Attribution license (https://creativecommons.org/licenses/by/4.0/)
+		Source: http://chriszabriskie.com/divider/
+		Artist: http://chriszabriskie.com/
+
+
+
+
