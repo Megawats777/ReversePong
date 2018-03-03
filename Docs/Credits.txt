@@ -24,7 +24,8 @@ Music:
 		http://creativecommons.org/licenses/by/3.0/
 
 	- Divider
-		Divider by Chris Zabriskie is licensed under a Creative Commons Attribution license (https://creativecommons.org/licenses/by/4.0/)
+		"Divider" by Chris Zabriskie is licensed under a Creative Commons 
+		Attribution license (https://creativecommons.org/licenses/by/4.0/)
 		Source: http://chriszabriskie.com/divider/
 		Artist: http://chriszabriskie.com/
 
