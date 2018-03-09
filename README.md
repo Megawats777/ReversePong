@@ -1,4 +1,7 @@
-# ReversePong
+# Reverse Pong
+
+## Download the game here!
+https://megawats777.itch.io/reverse-pong
 
 ## (IMPORTANT) To download/clone this project
 1. Have Git installed
